@@ -7,19 +7,25 @@
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
     <application
-        android:name=".Application"
+        android:name=".Activity.Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:largeHeap="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Activity.MainActivity"></activity>
+        <activity android:name=".Activity.PicPickActivity"></activity>
+        <activity android:name=".Activity.CollectionActivity"></activity>
+        <activity android:name=".Activity.ArtActivity"></activity>
     </application>
 
 </manifest>

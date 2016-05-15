@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:MyImageView="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/words_1"
+            android:padding="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="人生需要一场说走就走的旅行。"
+            android:typeface="monospace" />
+
+    </RelativeLayout>
+
+    <com.ashez.garfield.xingpostcard.Utils.MyImageView
+        android:id="@+id/pic_edit_view"
+        MyImageView:ClipSquareIV_BorderDistance="0dp"
+        MyImageView:ClipSquareIV_OutsideColor="#ffffffff"
+        MyImageView:ClipSquareIV_BorderColor="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

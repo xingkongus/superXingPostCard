@@ -1,4 +1,4 @@
-package us.xingkong.xingpostcard;
+package us.xingkong.xingpostcard.Activity;
 
 import ly.img.android.ImgLySdk;
 
