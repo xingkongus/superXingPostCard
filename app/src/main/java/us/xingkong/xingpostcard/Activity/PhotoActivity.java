@@ -1,4 +1,4 @@
-package us.xingkong.xingpostcard;
+package us.xingkong.xingpostcard.Activity;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +9,10 @@ import ly.img.android.ui.activities.CameraPreviewActivity;
 import ly.img.android.ui.activities.CameraPreviewIntent;
 import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
+import us.xingkong.xingpostcard.R;
 
-public class MainActivity extends AppCompatActivity {
+
+public class PhotoActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
 
     @Override
