@@ -3,8 +3,11 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import us.xingkong.xingpostcard.Adapter.CoverFlow;
 import us.xingkong.xingpostcard.Adapter.CoverFlowSampleAdapter;
@@ -35,12 +38,33 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setScaleDownGravity(0.5f);//高度差
 
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
+
+        this.fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       final int position, long id) {
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(MainActivity.this,CollectionActivity.class);
+                        System.out.println("styleCode"+position);
+                        intent.putExtra("styleCode",  position);
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 //    private void text() {
 //       fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//           public void onItemClick(AdapterView<?> parent, View view,
-//                                   int position, long id) {
+//           public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 //               Toast.makeText(MainActivity.this,
 //                       filmList.get(position % filmList.size()).getFilmName(),
 //                       0).show();
@@ -49,13 +73,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     private void onClick() {
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,PicPickActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     private void initView() {

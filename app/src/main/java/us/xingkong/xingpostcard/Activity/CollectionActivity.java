@@ -159,7 +159,7 @@ public class CollectionActivity extends AppCompatActivity {
             //  第一个参数是key， 第二个参数是要传递的值
             intent.putExtra("myphotopath", path);
             intent.putExtra("styleCode",Pick_position);
-            startActivity(intent);
+            CollectionActivity.this.startActivity(intent);
 
         }
     }
@@ -179,5 +179,6 @@ public class CollectionActivity extends AppCompatActivity {
 
     public void permissionDenied() {
         //The Permission whas rejected by the user, so the Editor was not opened because it can not save the result Image.
+
     }
 }

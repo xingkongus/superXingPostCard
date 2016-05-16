@@ -16,7 +16,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="成品展示"
+        android:text="选择样式"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"/>
     <us.xingkong.xingpostcard.Adapter.CoverFlow
