@@ -123,8 +123,8 @@ public class CollectionActivity extends AppCompatActivity {
         recyclerView_cartoon.setAdapter(mAdapter_cartoon);
         recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
 
-        //设置recyclerView的分割线
-        recyclerView_cartoon.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+//        //设置recyclerView的分割线
+//        recyclerView_cartoon.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
     }
 
     private void initView() {

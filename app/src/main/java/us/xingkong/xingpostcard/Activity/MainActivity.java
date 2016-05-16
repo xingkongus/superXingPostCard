@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import us.xingkong.xingpostcard.Adapter.CoverFlow;
 import us.xingkong.xingpostcard.Adapter.CoverFlowSampleAdapter;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CoverFlow fancyCoverFlow;
     Button yes;
+    ImageView guanyu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         onClick();
-//        text();
 
 
         this.fancyCoverFlow = (CoverFlow) this.findViewById(R.id.fancyCoverFlow);
@@ -37,17 +38,6 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
     }
 
-//    private void text() {
-//       fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//           public void onItemClick(AdapterView<?> parent, View view,
-//                                   int position, long id) {
-//               // TODO Auto-generated method stub
-//               Toast.makeText(MainActivity.this,
-//                       filmList.get(position % filmList.size()).getFilmName(),
-//                       0).show();
-//           }
-//       });
-//    }
 
     private void onClick() {
         yes.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +47,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        guanyu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initView() {
         yes= (Button) findViewById(R.id.yes);
+        guanyu= (ImageView) findViewById(R.id.guanyu);
     }
 }
