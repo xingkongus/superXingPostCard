@@ -24,9 +24,9 @@ import us.xingkong.xingpostcard.R;
 
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
-    public ArrayList<Integer> Pick_mData,Collection_data_real,Collection_data_cartoon;
-    private RecyclerView recyclerView_cartoon,recyclerView_real;
-    public Collection_SimpleAdapter mAdapter_real,mAdapter_cartoon;
+    public ArrayList<Integer> Pick_mData, Collection_data_real, Collection_data_cartoon;
+    private RecyclerView recyclerView_cartoon, recyclerView_real;
+    public Collection_SimpleAdapter mAdapter_real, mAdapter_cartoon;
     Context con;
     Button bendi;
     int Pick_position;
@@ -36,23 +36,11 @@ public class CollectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
 
-//        new CameraPreviewIntent(this)
-//                .setExportDir(CameraPreviewIntent.Directory.DCIM, "ImgLyExample")
-//                .setExportPrefix("example_")
-//                .setEditorIntent(
-//                        new PhotoEditorIntent(this)
-//                                .setExportDir(PhotoEditorIntent.Directory.DCIM, "ImgLyExample")
-//                                .setExportPrefix("result_")
-//                                .destroySourceAfterSave(true)
-//                )
-//                .startActivityForResult(CAMERA_PREVIEW_RESULT);
-
         initData();
         initView();
-        // 第一个参数是key， 第二个参数是若给定key对应的值不存在则默认的返回值；
-        Pick_position = getIntent().getIntExtra("styleCode",-1);
-        System.out.println("styleCode:"+Pick_position);
-//        img.setImageResource(mData.get(id));
+
+        Pick_position = getIntent().getIntExtra("styleCode", -1);
+        System.out.println("styleCode:" + Pick_position);
 
         view_layout(); //布局设置
         select_Click();//点击选择本地图片
@@ -66,11 +54,10 @@ public class CollectionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
-                //  第一个参数是key， 第二个参数是要传递的值
                 intent.putExtra("myphoto",
                         Collection_data_cartoon.get(position));
+                intent.putExtra("styleCode", Pick_position);
 
-                intent.putExtra("styleCode",Pick_position);
                 CollectionActivity.this.startActivity(intent);
             }
         });
@@ -81,10 +68,9 @@ public class CollectionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
-                //  第一个参数是key， 第二个参数是要传递的值
                 intent.putExtra("myphoto",
                         Collection_data_real.get(position));
-                intent.putExtra("styleCode",Pick_position);
+                intent.putExtra("styleCode", Pick_position);
                 CollectionActivity.this.startActivity(intent);
             }
         });
@@ -95,57 +81,47 @@ public class CollectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new CameraPreviewIntent(CollectionActivity.this)
-                .setExportDir(CameraPreviewIntent.Directory.DCIM, "ImgLyExample")
-                .setExportPrefix("example_")
-                .setEditorIntent(
-                        new PhotoEditorIntent(CollectionActivity.this)
-                                .setExportDir(PhotoEditorIntent.Directory.DCIM, "ImgLyExample")
-                                .setExportPrefix("result_")
-                                .destroySourceAfterSave(true)
-                )
-                .startActivityForResult(CAMERA_PREVIEW_RESULT);
+                        .setExportDir(CameraPreviewIntent.Directory.DCIM, "ImgLyExample")
+                        .setExportPrefix("example_")
+                        .setEditorIntent(
+                                new PhotoEditorIntent(CollectionActivity.this)
+                                        .setExportDir(PhotoEditorIntent.Directory.DCIM, "ImgLyExample")
+                                        .setExportPrefix("result_")
+                                        .destroySourceAfterSave(true)
+                        )
+                        .startActivityForResult(CAMERA_PREVIEW_RESULT);
             }
         });
     }
 
     private void view_layout() {
-        final LinearLayoutManager linearLayoutMannger=new LinearLayoutManager(con,LinearLayoutManager.HORIZONTAL,false);
-        mAdapter_real=new Collection_SimpleAdapter(this,Collection_data_real);
+        final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
+        mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real);
         recyclerView_real.setAdapter(mAdapter_real);
-
         recyclerView_real.setLayoutManager(linearLayoutMannger);
-        //设置recyclerView的分割线
         recyclerView_real.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
-
-        final LinearLayoutManager linearLayoutMannger2=new LinearLayoutManager(con,LinearLayoutManager.HORIZONTAL,false);
-        mAdapter_cartoon=new Collection_SimpleAdapter(this,Collection_data_cartoon);
+        final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
+        mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon);
         recyclerView_cartoon.setAdapter(mAdapter_cartoon);
         recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
-
-        //设置recyclerView的分割线
         recyclerView_cartoon.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
     }
 
     private void initView() {
-
-        recyclerView_cartoon= (RecyclerView) findViewById(R.id.recyclerView_cartoon);
-        recyclerView_real= (RecyclerView) findViewById(R.id.recyclerView_real);
-        bendi= (Button) findViewById(R.id.bendi);
+        recyclerView_cartoon = (RecyclerView) findViewById(R.id.recyclerView_cartoon);
+        recyclerView_real = (RecyclerView) findViewById(R.id.recyclerView_real);
+        bendi = (Button) findViewById(R.id.bendi);
     }
 
     private void initData() {
-//        Pick_mData = new ArrayList<Integer>(Arrays.asList(R.mipmap.ic_launcher,
-//                R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-//                R.mipmap.ic_launcher));
 
-
-        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01,R.drawable.a02,
-                R.drawable.a03,R.drawable.a04,R.drawable.a05,R.drawable.a06,R.drawable.a07,R.drawable.a08
-               ));
+        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01, R.drawable.a02,
+                R.drawable.a03, R.drawable.a04, R.drawable.a05, R.drawable.a06, R.drawable.a07, R.drawable.a08
+        ));
         Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.drawable.bg01,
-              R.drawable.bg02,R.drawable.bg03, R.drawable.bg04,
-                R.drawable.bg05,R.drawable.bg06,R.drawable.bg07,R.drawable.bg08,R.drawable.bg09));
+                R.drawable.bg02, R.drawable.bg03, R.drawable.bg04,
+                R.drawable.bg05, R.drawable.bg06, R.drawable.bg07, R.drawable.bg08, R.drawable.bg09));
     }
 
     @Override
@@ -156,9 +132,8 @@ public class CollectionActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Image Save on: " + path, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
-            //  第一个参数是key， 第二个参数是要传递的值
             intent.putExtra("myphotopath", path);
-            intent.putExtra("styleCode",Pick_position);
+            intent.putExtra("styleCode", Pick_position);
             CollectionActivity.this.startActivity(intent);
 
         }

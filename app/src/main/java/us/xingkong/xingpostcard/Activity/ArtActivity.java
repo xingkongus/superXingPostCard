@@ -124,7 +124,8 @@ public class ArtActivity extends AppCompatActivity {
             }
             /**---------------下方要改为正确的值------------------*/
             intent.putExtra("styleCode", 0);
-//            intent.putExtra("myPhotoPath", clipedPhotoPath);
+            intent.putExtra("myphotopath", myphotopath);
+            intent.putExtra("myphoto", myphoto);
             intent.putExtra("viewId", view.getId());
             startActivity(intent);
         }
