@@ -67,7 +67,7 @@ public class CollectionActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
                 //  第一个参数是key， 第二个参数是要传递的值
-                intent.putExtra("pictureFromApp",
+                intent.putExtra("myphoto",
                         Collection_data_cartoon.get(position));
 
                 intent.putExtra("styleCode",Pick_position);
@@ -82,7 +82,7 @@ public class CollectionActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
                 //  第一个参数是key， 第二个参数是要传递的值
-                intent.putExtra("pictureFromApp",
+                intent.putExtra("myphoto",
                         Collection_data_real.get(position));
                 intent.putExtra("styleCode",Pick_position);
                 CollectionActivity.this.startActivity(intent);
@@ -155,7 +155,7 @@ public class CollectionActivity extends AppCompatActivity {
             Toast.makeText(this, "Image Save on: " + path, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(CollectionActivity.this, ArtActivity.class);
             //  第一个参数是key， 第二个参数是要传递的值
-            intent.putExtra("pictureFromLocal",
+            intent.putExtra("myphotopath",
                    path);
             intent.putExtra("styleCode",Pick_position);
             CollectionActivity.this.startActivity(intent);
