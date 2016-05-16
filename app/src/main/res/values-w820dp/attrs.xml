@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyImageView">
+        <attr name="ClipSquareIV_BorderDistance" format="dimension"/>
+        <attr name="ClipSquareIV_BorderWidth" format="dimension"/>
+        <attr name="ClipSquareIV_BorderColor" format="color"/>
+        <attr name="ClipSquareIV_OutsideColor" format="color"/>
+    </declare-styleable>
+</resources>

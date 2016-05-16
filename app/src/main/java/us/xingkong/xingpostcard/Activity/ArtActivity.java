@@ -1,5 +1,6 @@
 package us.xingkong.xingpostcard.Activity;
 
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -76,6 +77,7 @@ public class ArtActivity extends AppCompatActivity {
 
 
     private void initViews() {
+        System.out.println("stylecode"+styleCode);
         ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
         clipedPhotoPath = getIntent().getStringExtra("myPhotoPath");
@@ -175,5 +177,6 @@ public class ArtActivity extends AppCompatActivity {
             }
         }
     }
+
 
 }

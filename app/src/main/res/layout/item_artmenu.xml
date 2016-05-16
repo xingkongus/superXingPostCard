@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/art_menu_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_done_black_24dp"/>
+</FrameLayout>
