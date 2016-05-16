@@ -10,10 +10,8 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,20 +33,13 @@ public class ArtActivity extends AppCompatActivity {
     private ScrollView sv;
     private LinearLayout ll;
     Intent intent;
-    String clipedPhotoPath;
 
     private int styleCode = 0;
-    private int ivHeight;
-    private int ivWidth;
-    private int areaHeight;
-    private int areaWidth;
+
+    private int myphoto;
+    private String myphotopath;
+
     int x = 0, y = 0;
-
-    private enum picturePath {
-        PATH, ID
-    }
-
-    private picturePath flag = null;
 
 
     @Override
@@ -67,36 +58,43 @@ public class ArtActivity extends AppCompatActivity {
     private void getStyle() {
         if (getIntent().getIntExtra("styleCode", -1) != -1) {
             styleCode = getIntent().getIntExtra("styleCode", -1);
-        }
-        if (getIntent().getStringExtra("pictureFromLocal") == null) {
-            flag = picturePath.ID;
-        } else {
-            flag = picturePath.PATH;
+            System.out.println("styleCode=" + styleCode);
         }
     }
 
+    private void getPhoto(ImageView iv) {
+        myphoto = getIntent().getIntExtra("myphoto", -1);
+        myphotopath = getIntent().getStringExtra("myphotopath");
+        if (myphoto != -1) {
+            iv.setImageResource(myphoto);
+        } else if (myphotopath != null) {
+            iv.setImageBitmap(BitmapFactory.decodeFile(myphotopath));
+        }
+
+    }
 
     private void initViews() {
-        System.out.println("stylecode"+styleCode);
+        System.out.println("stylecode" + styleCode);
         ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
-        clipedPhotoPath = getIntent().getStringExtra("myPhotoPath");
         switch (styleCode) {
             case 0:
                 View view = LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
                 iv = (ImageView) findViewById(R.id.iv1);
+                iv.setDrawingCacheEnabled(true);
                 tv = (TextView) findViewById(R.id.tv1);
                 bt = (Button) findViewById(R.id.done);
                 tv2 = (TextView) findViewById(R.id.tv_date);
-                iv.setImageBitmap(BitmapFactory.decodeFile(clipedPhotoPath));
+                getPhoto(iv);
                 break;
             case 1:
                 View v = LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
                 iv = (ImageView) findViewById(R.id.iv1);
+                iv.setDrawingCacheEnabled(true);
                 tv = (TextView) findViewById(R.id.tv1);
                 bt = (Button) findViewById(R.id.done);
                 tv2 = (TextView) findViewById(R.id.tv_date);
-                iv.setImageBitmap(BitmapFactory.decodeFile(getIntent().getStringExtra("myPhotoPath")));
+                getPhoto(iv);
                 break;
         }
 
@@ -126,7 +124,7 @@ public class ArtActivity extends AppCompatActivity {
             }
             /**---------------下方要改为正确的值------------------*/
             intent.putExtra("styleCode", 0);
-            intent.putExtra("myPhotoPath", clipedPhotoPath);
+//            intent.putExtra("myPhotoPath", clipedPhotoPath);
             intent.putExtra("viewId", view.getId());
             startActivity(intent);
         }
@@ -140,15 +138,13 @@ public class ArtActivity extends AppCompatActivity {
             /**---------------下方要改为正确的值------------------*/
             switch (styleCode) {
                 case 0:
-                    x = areaWidth = sv.getWidth();
-                    y = areaHeight = sv.getHeight();
+                    x = sv.getWidth();
+                    y = sv.getHeight();
                     Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
                     Paint paint = new Paint();
                     paint.setAntiAlias(true);
                     Canvas canvas = new Canvas(bmp);
-                    Bitmap pic = BitmapFactory
-                            .decodeFile(getIntent()
-                                    .getStringExtra("myPhotoPath"));
+                    Bitmap pic = iv.getDrawingCache();
                     canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()),
                             new Rect(iv.getLeft(),
                                     iv.getTop(),
