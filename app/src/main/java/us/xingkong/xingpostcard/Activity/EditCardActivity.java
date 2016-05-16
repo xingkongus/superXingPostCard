@@ -41,7 +41,8 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("words", editcardEt.getText().toString());
             intent.putExtra("viewId",getIntent().getIntExtra("viewId",-1));
-            intent.putExtra("myPhotoPath", getIntent().getStringExtra("myPhotoPath"));
+            intent.putExtra("myphotopath", getIntent().getStringExtra("myphotopath"));
+            intent.putExtra("myphoto", getIntent().getIntExtra("myphoto",-1));
             startActivity(intent);
             finish();
         }
