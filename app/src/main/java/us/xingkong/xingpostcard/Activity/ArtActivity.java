@@ -91,6 +91,15 @@ public class ArtActivity extends AppCompatActivity {
                 tv2 = (TextView) findViewById(R.id.tv_date);
                 getPhoto(iv);
                 break;
+            case 3:
+                LayoutInflater.from(this).inflate(R.layout.pattern_4, sv, true);
+                iv = (ImageView) findViewById(R.id.iv1);
+                iv.setDrawingCacheEnabled(true);
+                tv = (TextView) findViewById(R.id.tv1);
+                bt = (Button) findViewById(R.id.done);
+                tv2 = (TextView) findViewById(R.id.tv_date);
+                getPhoto(iv);
+                break;
         }
 
         if (getIntent().getStringExtra("words") != null) {
@@ -133,11 +142,11 @@ public class ArtActivity extends AppCompatActivity {
 //            /**---------------下方要改为正确的值------------------*/
 //            switch (styleCode) {
 //                case 0:
-                    Bitmap bmp = sv.getDrawingCache();
+            Bitmap bmp = sv.getDrawingCache();
 //                    aLowWay();
-                    String path = IOFile.toSaveFile(bmp);
-                    intent.putExtra("resultPath", path);
-                    startActivity(intent);
+            String path = IOFile.toSaveFile(bmp);
+            intent.putExtra("resultPath", path);
+            startActivity(intent);
 //                    break;
 //
 //            }
