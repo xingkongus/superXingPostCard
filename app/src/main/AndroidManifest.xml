@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ArtActivity"/>
-        <activity android:name=".Activity.EditCardActivity"/>
+        <activity android:name=".Activity.EditCardActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
         <activity android:name=".Activity.ResultActivity"/>
 
     </application>
