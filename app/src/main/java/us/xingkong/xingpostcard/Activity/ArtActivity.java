@@ -104,11 +104,11 @@ public class ArtActivity extends AppCompatActivity {
         if (getIntent().getStringExtra("words") != null) {
 
             int changeViewID = getIntent().getIntExtra("viewId", -1);
-            if (tv.getId()==changeViewID){
+            if (tv.getId() == changeViewID) {
                 tv.setText(getIntent().getStringExtra("words"));
-            }else if (tv2.getId()==changeViewID){
+            } else if (tv2.getId() == changeViewID) {
                 tv2.setText(getIntent().getStringExtra("words"));
-            }else {
+            } else {
                 System.out.println("ID会变！");
             }
         }
@@ -154,19 +154,20 @@ public class ArtActivity extends AppCompatActivity {
                     Canvas canvas = new Canvas(bmp);
 
                     Bitmap pic = BitmapFactory.decodeFile(getIntent().getStringExtra("myPhotoPath"));
-                    Log.e("90909", "x=" + x + "iv.getleft=" + getViewLeft(iv) + "areawidth=" + areaWidth);
+                    Log.e("90909", "x=" + x + "  y=" + y + "  iv.getleft=" + iv.getLeft() + "areawidth=" + areaWidth);
                     Log.e("90909", "asdfasfasfa");
-                    canvas.drawBitmap(pic, new Rect(x * iv.getLeft() / areaWidth, y * iv.getTop() / areaHeight, x - x * iv.getLeft() / areaWidth, y - y * iv.getBottom()), new Rect(0, 0, pic.getWidth(), pic.getHeight()), paint);
+                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()), new Rect(x * iv.getLeft() / areaWidth, y * iv.getTop() / areaHeight, x - x * iv.getLeft() / areaWidth, y - y * iv.getBottom()), paint);
 
                     tv.setDrawingCacheEnabled(true);
                     Bitmap textBMP = tv.getDrawingCache();
-                    canvas.drawBitmap(textBMP, new Rect(x * tv.getLeft() / areaWidth, y * tv.getTop() / areaHeight, x - x * tv.getLeft() / areaWidth, y - y * tv.getBottom()), new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()), paint);
-                    tv.setDrawingCacheEnabled(false);
+                    canvas.drawBitmap(textBMP, new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()), new Rect(x * tv.getLeft() / areaWidth, y * tv.getTop() / areaHeight, x - x * tv.getLeft() / areaWidth, y - y * tv.getBottom()), paint);
 
                     tv2.setDrawingCacheEnabled(true);
                     Bitmap text2BMP = tv.getDrawingCache();
-                    canvas.drawBitmap(text2BMP, new Rect(x * tv2.getLeft() / areaWidth, y * tv2.getTop() / areaHeight, x - x * tv2.getLeft() / areaWidth, y - y * tv2.getBottom()), new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()), paint);
-                    tv2.setDrawingCacheEnabled(false);
+                    canvas.drawBitmap(text2BMP,new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()), new Rect(x * tv2.getLeft() / areaWidth, y * tv2.getTop() / areaHeight, x - x * tv2.getLeft() / areaWidth, y - y * tv2.getBottom()),  paint);
+//                    tv.setDrawingCacheEnabled(false);
+//
+//                    tv2.setDrawingCacheEnabled(false);
 
 
                     String path = IOFile.toSaveFile(bmp);
