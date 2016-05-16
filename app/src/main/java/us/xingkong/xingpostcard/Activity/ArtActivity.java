@@ -23,6 +23,8 @@ import us.xingkong.xingpostcard.Utils.IOFile;
 
 /**
  * Created by Garfield on 5/15/16. 11:38PM
+ * OverWritten by hugeterry(http://hugeterry.cn)
+ * Date: 2016/5/14 03:37
  * 用户编辑明信片页
  */
 public class ArtActivity extends AppCompatActivity {
@@ -49,7 +51,7 @@ public class ArtActivity extends AppCompatActivity {
 
     private void getStyle() {
         if (getIntent().getIntExtra("styleCode", -1) != -1) {
-            styleCode = getIntent().getIntExtra("styleCode", -1);
+            styleCode = getIntent().getIntExtra("styleCode", styleCode);
             System.out.println("styleCode=" + styleCode);
         }
     }
@@ -115,7 +117,6 @@ public class ArtActivity extends AppCompatActivity {
             if (!((TextView) view).getText().toString().isEmpty()) {
                 intent.putExtra("words", ((TextView) view).getText().toString());
             }
-            /**---------------下方要改为正确的值------------------*/
             intent.putExtra("styleCode", 0);
             intent.putExtra("myphotopath", myphotopath);
             intent.putExtra("myphoto", myphoto);
@@ -129,10 +130,21 @@ public class ArtActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             intent = new Intent(ArtActivity.this, ResultActivity.class);
-            /**---------------下方要改为正确的值------------------*/
-            switch (styleCode) {
-                case 0:
+//            /**---------------下方要改为正确的值------------------*/
+//            switch (styleCode) {
+//                case 0:
                     Bitmap bmp = sv.getDrawingCache();
+//                    aLowWay();
+                    String path = IOFile.toSaveFile(bmp);
+                    intent.putExtra("resultPath", path);
+                    startActivity(intent);
+//                    break;
+//
+//            }
+        }
+    }
+
+    private void aLowWay() {
 //                    x = sv.getWidth();
 //                    y = sv.getHeight();
 //                    Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
@@ -160,12 +172,6 @@ public class ArtActivity extends AppCompatActivity {
 //                                    tv2.getTop(),
 //                                    x - tv2.getLeft(),
 //                                    tv2.getTop() + tv2.getHeight()), paint);
-                    String path = IOFile.toSaveFile(bmp);
-                    intent.putExtra("resultPath", path);
-                    startActivity(intent);
-                    break;
-            }
-        }
     }
 
 
