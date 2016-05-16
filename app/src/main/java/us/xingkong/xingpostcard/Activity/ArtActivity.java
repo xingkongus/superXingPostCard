@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class ArtActivity extends AppCompatActivity {
     private TextView tv, tv2;
     private Button bt;
     private ScrollView sv;
+    private LinearLayout ll;
     Intent intent;
     String clipedPhotoPath;
 
@@ -74,19 +76,16 @@ public class ArtActivity extends AppCompatActivity {
 
 
     private void initViews() {
-
+        ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
         clipedPhotoPath = getIntent().getStringExtra("myPhotoPath");
         switch (styleCode) {
             case 0:
                 View view = LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
-
                 iv = (ImageView) findViewById(R.id.iv1);
                 tv = (TextView) findViewById(R.id.tv1);
                 bt = (Button) findViewById(R.id.done);
                 tv2 = (TextView) findViewById(R.id.tv_date);
-
-
                 iv.setImageBitmap(BitmapFactory.decodeFile(clipedPhotoPath));
                 break;
             case 1:
@@ -95,8 +94,6 @@ public class ArtActivity extends AppCompatActivity {
                 tv = (TextView) findViewById(R.id.tv1);
                 bt = (Button) findViewById(R.id.done);
                 tv2 = (TextView) findViewById(R.id.tv_date);
-
-
                 iv.setImageBitmap(BitmapFactory.decodeFile(getIntent().getStringExtra("myPhotoPath")));
                 break;
         }
@@ -138,42 +135,40 @@ public class ArtActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             intent = new Intent(ArtActivity.this, ResultActivity.class);
-
             /**---------------下方要改为正确的值------------------*/
-
             switch (styleCode) {
-
                 case 0:
-
-                    x = areaWidth = getViewWidth(sv);
-                    y = areaHeight = getViewHeight(sv.getChildAt(0));
+                    x = areaWidth = sv.getWidth();
+                    y = areaHeight = sv.getHeight();
                     Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
-
                     Paint paint = new Paint();
                     paint.setAntiAlias(true);
                     Canvas canvas = new Canvas(bmp);
-
-                    Bitmap pic = BitmapFactory.decodeFile(getIntent().getStringExtra("myPhotoPath"));
-                    Log.e("90909", "x=" + x + "  y=" + y + "  iv.getleft=" + iv.getLeft() + "areawidth=" + areaWidth);
-                    Log.e("90909", "asdfasfasfa");
-                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()), new Rect(x * iv.getLeft() / areaWidth, y * iv.getTop() / areaHeight, x - x * iv.getLeft() / areaWidth, y - y * iv.getBottom()), paint);
-
+                    Bitmap pic = BitmapFactory
+                            .decodeFile(getIntent()
+                                    .getStringExtra("myPhotoPath"));
+                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()),
+                            new Rect(iv.getLeft(),
+                                    iv.getTop(),
+                                    x - iv.getLeft(),
+                                    iv.getTop() + iv.getHeight()), paint);
                     tv.setDrawingCacheEnabled(true);
                     Bitmap textBMP = tv.getDrawingCache();
-                    canvas.drawBitmap(textBMP, new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()), new Rect(x * tv.getLeft() / areaWidth, y * tv.getTop() / areaHeight, x - x * tv.getLeft() / areaWidth, y - y * tv.getBottom()), paint);
-
+                    canvas.drawBitmap(textBMP,
+                            new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()),
+                            new Rect(tv.getLeft(),
+                                    tv.getTop(),
+                                    x - tv.getLeft(),
+                                    tv.getTop() + tv.getHeight()), paint);
                     tv2.setDrawingCacheEnabled(true);
                     Bitmap text2BMP = tv.getDrawingCache();
-                    canvas.drawBitmap(text2BMP,new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()), new Rect(x * tv2.getLeft() / areaWidth, y * tv2.getTop() / areaHeight, x - x * tv2.getLeft() / areaWidth, y - y * tv2.getBottom()),  paint);
-//                    tv.setDrawingCacheEnabled(false);
-//
-//                    tv2.setDrawingCacheEnabled(false);
-
-
+                    canvas.drawBitmap(text2BMP, new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()),
+                            new Rect(tv2.getLeft(),
+                                    tv2.getTop(),
+                                    x - tv2.getLeft(),
+                                    tv2.getTop() + tv2.getHeight()), paint);
                     String path = IOFile.toSaveFile(bmp);
                     intent.putExtra("resultPath", path);
-
-
                     startActivity(intent);
                     break;
 
@@ -181,35 +176,4 @@ public class ArtActivity extends AppCompatActivity {
         }
     }
 
-    //宽
-    public int getViewWidth(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getMeasuredWidth();
-    }
-
-    //高
-    public int getViewHeight(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getMeasuredHeight();
-    }
-
-    public int getViewLeft(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getLeft();
-    }
-
-    public int getViewTop(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getMeasuredHeight();
-    }
-
-    public int getViewRight(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getMeasuredHeight();
-    }
-
-    public int getViewBottom(View view) {
-        view.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        return view.getMeasuredHeight();
-    }
 }
