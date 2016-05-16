@@ -1,5 +1,6 @@
 package us.xingkong.xingpostcard.Activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,9 @@ public class PhotoActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == CAMERA_PREVIEW_RESULT) {
             String path = data.getStringExtra(CameraPreviewActivity.RESULT_IMAGE_PATH);
 
+            Intent intent = new Intent(this, ArtActivity.class);
+            intent.putExtra("myPhotoPath",path);
+            startActivity(intent);
             Toast.makeText(this, "Image Save on: " + path, Toast.LENGTH_LONG).show();
 
         }

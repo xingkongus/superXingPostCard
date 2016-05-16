@@ -28,6 +28,7 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_editcard);
 
         editcardEt = (EditText) findViewById(R.id.editcard_et);
+        editcardEt.setText(getIntent().getStringExtra("words"));
         editcardBt = (Button) findViewById(R.id.editcard_bt);
         editcardBt.setOnClickListener(this);
 
@@ -39,6 +40,8 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
             Intent intent = new Intent(this, ArtActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("words", editcardEt.getText().toString());
+            intent.putExtra("viewId",getIntent().getIntExtra("viewId",-1));
+            intent.putExtra("myPhotoPath", getIntent().getStringExtra("myPhotoPath"));
             startActivity(intent);
             finish();
         }

@@ -16,9 +16,9 @@
         android:layout_marginRight="30dp"
         android:background="@color/material_green_A200">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
+            <!--<View-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="0dp" />-->
 
     </ScrollView>
     <Button
