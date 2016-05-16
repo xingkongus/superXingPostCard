@@ -33,27 +33,19 @@ public class ArtActivity extends AppCompatActivity {
     private ScrollView sv;
     private LinearLayout ll;
     Intent intent;
-
     private int styleCode = 0;
-
     private int myphoto;
     private String myphotopath;
-
     int x = 0, y = 0;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_art);
-
         getStyle();//获取intent的值做初始化
-
         initViews();//根据获得的板式种类，初始化界面，绑定控件监听等...
 
-
     }
-
 
     private void getStyle() {
         if (getIntent().getIntExtra("styleCode", -1) != -1) {
@@ -77,6 +69,7 @@ public class ArtActivity extends AppCompatActivity {
         System.out.println("stylecode" + styleCode);
         ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
+        sv.setDrawingCacheEnabled(true);
         switch (styleCode) {
             case 0:
                 View view = LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
@@ -139,38 +132,38 @@ public class ArtActivity extends AppCompatActivity {
             /**---------------下方要改为正确的值------------------*/
             switch (styleCode) {
                 case 0:
-                    x = sv.getWidth();
-                    y = sv.getHeight();
-                    Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
-                    Paint paint = new Paint();
-                    paint.setAntiAlias(true);
-                    Canvas canvas = new Canvas(bmp);
-                    Bitmap pic = iv.getDrawingCache();
-                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()),
-                            new Rect(iv.getLeft(),
-                                    iv.getTop(),
-                                    x - iv.getLeft(),
-                                    iv.getTop() + iv.getHeight()), paint);
-                    tv.setDrawingCacheEnabled(true);
-                    Bitmap textBMP = tv.getDrawingCache();
-                    canvas.drawBitmap(textBMP,
-                            new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()),
-                            new Rect(tv.getLeft(),
-                                    tv.getTop(),
-                                    x - tv.getLeft(),
-                                    tv.getTop() + tv.getHeight()), paint);
-                    tv2.setDrawingCacheEnabled(true);
-                    Bitmap text2BMP = tv.getDrawingCache();
-                    canvas.drawBitmap(text2BMP, new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()),
-                            new Rect(tv2.getLeft(),
-                                    tv2.getTop(),
-                                    x - tv2.getLeft(),
-                                    tv2.getTop() + tv2.getHeight()), paint);
+                    Bitmap bmp = sv.getDrawingCache();
+//                    x = sv.getWidth();
+//                    y = sv.getHeight();
+//                    Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
+//                    Paint paint = new Paint();
+//                    paint.setAntiAlias(true);
+//                    Canvas canvas = new Canvas(bmp);
+//                    Bitmap pic = iv.getDrawingCache();
+//                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()),
+//                            new Rect(iv.getLeft(),
+//                                    iv.getTop(),
+//                                    x - iv.getLeft(),
+//                                    iv.getTop() + iv.getHeight()), paint);
+//                    tv.setDrawingCacheEnabled(true);
+//                    Bitmap textBMP = tv.getDrawingCache();
+//                    canvas.drawBitmap(textBMP,
+//                            new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()),
+//                            new Rect(tv.getLeft(),
+//                                    tv.getTop(),
+//                                    x - tv.getLeft(),
+//                                    tv.getTop() + tv.getHeight()), paint);
+//                    tv2.setDrawingCacheEnabled(true);
+//                    Bitmap text2BMP = tv.getDrawingCache();
+//                    canvas.drawBitmap(text2BMP, new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()),
+//                            new Rect(tv2.getLeft(),
+//                                    tv2.getTop(),
+//                                    x - tv2.getLeft(),
+//                                    tv2.getTop() + tv2.getHeight()), paint);
                     String path = IOFile.toSaveFile(bmp);
                     intent.putExtra("resultPath", path);
                     startActivity(intent);
                     break;
-
             }
         }
     }
