@@ -12,8 +12,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
-        <activity android:name=".Activity.PhotoActivity">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".Activity.PhotoActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,6 +22,7 @@
         </activity>
         <activity android:name=".Activity.ArtActivity"/>
         <activity android:name=".Activity.EditCardActivity"/>
+        <activity android:name=".Activity.ResultActivity"/>
 
     </application>
 
