@@ -7,11 +7,12 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="40dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingTop="40dp"
         android:orientation="vertical">
 
         <ImageView

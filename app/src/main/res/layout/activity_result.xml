@@ -15,8 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/material_indigo_200" />
+            android:adjustViewBounds="true"
+            android:background="@color/material_indigo_200"
+            android:scaleType="fitXY" />
 
     </ScrollView>
 
@@ -24,8 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="20dp"
         android:text="一键转发到朋友圈" />
 
 </LinearLayout>
