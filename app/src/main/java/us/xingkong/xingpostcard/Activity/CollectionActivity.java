@@ -135,15 +135,17 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        Pick_mData = new ArrayList<Integer>(Arrays.asList(R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher));
-        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher));
+//        Pick_mData = new ArrayList<Integer>(Arrays.asList(R.mipmap.ic_launcher,
+//                R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+//                R.mipmap.ic_launcher));
+
+
+        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01,R.drawable.a02,
+                R.drawable.a03,R.drawable.a04,R.drawable.a05,R.drawable.a06,R.drawable.a07,R.drawable.a08
+               ));
         Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.drawable.bg01,
-                R.drawable.bg02,R.drawable.bg03,R.drawable.bg04, R.drawable.bg05,
-                R.drawable.bg06,R.drawable.bg07,R.drawable.bg08,R.drawable.bg09));
+              R.drawable.bg02,R.drawable.bg03, R.drawable.bg04,
+                R.drawable.bg05,R.drawable.bg06,R.drawable.bg07,R.drawable.bg08,R.drawable.bg09));
     }
 
     @Override
