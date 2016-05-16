@@ -17,12 +17,10 @@ import us.xingkong.xingpostcard.Utils.Ruler;
  */
 public class ResultActivity extends Activity {
 
-
     ImageView resultIv;
     private int windowWidth;
     private int windowHeight;
     private Bitmap pic;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
