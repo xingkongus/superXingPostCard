@@ -15,9 +15,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+
             android:adjustViewBounds="true"
             android:background="@color/material_indigo_200"
             android:scaleType="fitXY" />
+
 
     </ScrollView>
 

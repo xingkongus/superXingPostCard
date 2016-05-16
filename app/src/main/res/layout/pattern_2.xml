@@ -1,44 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    xmlns:MyImageView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/material_teal_A700">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_height="300dp"
-        android:background="@color/material_pink_400"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv1"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="40dp"
+            android:id="@+id/words_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="30dp"
             android:text="人生需要一场说走就走的旅行。"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:typeface="monospace" />
 
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_gravity="right"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="2015 / 01 / 30"/>
+    </RelativeLayout>
 
-    </LinearLayout>
+    <com.ashez.garfield.xingpostcard.Utils.MyImageView
+        android:id="@+id/pic_edit_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        MyImageView:ClipSquareIV_BorderColor="@android:color/transparent"
+        MyImageView:ClipSquareIV_BorderDistance="0dp"
+        MyImageView:ClipSquareIV_OutsideColor="#ffffffff" />
 </LinearLayout>

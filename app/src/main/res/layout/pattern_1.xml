@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,18 +11,18 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:paddingTop="40dp"
-        android:orientation="vertical">
+        android:paddingTop="40dp">
 
         <ImageView
             android:id="@+id/iv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:background="@color/material_pink_400"
+            android:scaleType="fitXY"
             tools:layout_height="300dp" />
 
         <TextView
@@ -42,4 +43,5 @@
             android:textSize="12sp" />
 
     </LinearLayout>
+
 </LinearLayout>
