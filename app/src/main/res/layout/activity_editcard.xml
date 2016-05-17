@@ -12,7 +12,7 @@
         android:layout_height="200dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/material_blueGrey_300"
+        android:background="#b8c0ff"
         android:gravity="left|top"
         android:hint="请输入少于48个文字"
         android:imeOptions="flagNoEnterAction"

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         tools:layout_width="150dp"
-        android:background="@color/material_pink_400"
+        android:background="#e600ff"
         />
 
     <LinearLayout

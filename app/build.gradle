@@ -26,6 +26,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'ly.img.android:photo-editor-sdk:1.0.8'
-    compile 'com.zzhoujay.materialcolors:materialcolors:1.0.0'
 
 }
