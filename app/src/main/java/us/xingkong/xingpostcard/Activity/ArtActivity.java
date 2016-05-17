@@ -4,17 +4,11 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -71,6 +65,21 @@ public class ArtActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+
+        if (getIntent().getStringExtra("words") != null) {
+
+            int changeViewID = getIntent().getIntExtra("viewId", -1);
+            if (tv.getId() == changeViewID) {
+                tv.setText(getIntent().getStringExtra("words"));
+            } else if (tv2.getId() == changeViewID) {
+                tv2.setText(getIntent().getStringExtra("words"));
+            } else {
+                System.out.println("ID会变");
+            }
+            styleCode = getIntent().getIntExtra("styleCode", -1);
+        }
+
+
         System.out.println("stylecode" + styleCode);
         ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
@@ -103,19 +112,27 @@ public class ArtActivity extends AppCompatActivity {
                 tv2 = (TextView) findViewById(R.id.tv_date);
                 getPhoto(iv);
                 break;
+            case 4:
+                LayoutInflater.from(this).inflate(R.layout.pattern_5, sv, true);
+                iv = (ImageView) findViewById(R.id.iv1);
+                iv.setDrawingCacheEnabled(true);
+                tv = (TextView) findViewById(R.id.tv1);
+                bt = (Button) findViewById(R.id.done);
+                tv2 = (TextView) findViewById(R.id.tv2);
+                getPhoto(iv);
+                break;
+            case 5:
+                LayoutInflater.from(this).inflate(R.layout.pattern_6, sv, true);
+                iv = (ImageView) findViewById(R.id.iv1);
+                iv.setDrawingCacheEnabled(true);
+                tv = (TextView) findViewById(R.id.tv1);
+                bt = (Button) findViewById(R.id.done);
+                tv2 = (TextView) findViewById(R.id.tv_date);
+                getPhoto(iv);
+                break;
         }
 
-        if (getIntent().getStringExtra("words") != null) {
 
-            int changeViewID = getIntent().getIntExtra("viewId", -1);
-            if (tv.getId() == changeViewID) {
-                tv.setText(getIntent().getStringExtra("words"));
-            } else if (tv2.getId() == changeViewID) {
-                tv2.setText(getIntent().getStringExtra("words"));
-            } else {
-                System.out.println("ID会变");
-            }
-        }
         tv.setOnClickListener(new textOnClickListener());
         tv2.setOnClickListener(new textOnClickListener());
         bt.setOnClickListener(new btOnClickListener());
@@ -133,6 +150,7 @@ public class ArtActivity extends AppCompatActivity {
             intent.putExtra("myphotopath", myphotopath);
             intent.putExtra("myphoto", myphoto);
             intent.putExtra("viewId", view.getId());
+            intent.putExtra("styleCode", getIntent().getIntExtra("styleCode", -1));
             startActivity(intent);
         }
     }
@@ -151,8 +169,6 @@ public class ArtActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-
 
 
     private void aLowWay() {

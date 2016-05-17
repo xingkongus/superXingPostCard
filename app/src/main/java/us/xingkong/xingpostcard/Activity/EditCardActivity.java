@@ -52,6 +52,8 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("viewId",getIntent().getIntExtra("viewId",-1));
             intent.putExtra("myphotopath", getIntent().getStringExtra("myphotopath"));
             intent.putExtra("myphoto", getIntent().getIntExtra("myphoto",-1));
+            intent.putExtra("styleCode", getIntent().getIntExtra("styleCode",-1));
+
             startActivity(intent);
             finish();
         }
