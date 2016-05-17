@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,8 +28,17 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_editcard);
 
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.x = -20;
+//        params.y = -10;
+
+//        params.height = 100;
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        this.getWindow().setAttributes(params);
+
         editcardEt = (EditText) findViewById(R.id.editcard_et);
         editcardEt.setText(getIntent().getStringExtra("words"));
+        editcardEt.setMaxLines(8);
         editcardBt = (Button) findViewById(R.id.editcard_bt);
         editcardBt.setOnClickListener(this);
 
@@ -43,6 +53,7 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("viewId",getIntent().getIntExtra("viewId",-1));
             intent.putExtra("myphotopath", getIntent().getStringExtra("myphotopath"));
             intent.putExtra("myphoto", getIntent().getIntExtra("myphoto",-1));
+            intent.putExtra("styleCode", getIntent().getIntExtra("styleCode",-1));
             startActivity(intent);
             finish();
         }

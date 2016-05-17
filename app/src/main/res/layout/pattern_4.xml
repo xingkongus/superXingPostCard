@@ -6,19 +6,14 @@
     android:layout_height="wrap_content"
     android:background="@mipmap/bg"
     android:orientation="vertical"
-    android:paddingLeft="40dp"
-    android:paddingRight="40dp"
-    android:paddingBottom="40dp"
-    android:paddingTop="40dp">
+    android:paddingBottom="@dimen/bottomfromend">
 
     <ImageView
         android:id="@+id/iv1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:background="#e600ff"
+        android:background="#ec407a"
         android:scaleType="fitXY"
         tools:layout_height="300dp" />
 
@@ -43,9 +38,6 @@
             android:layout_height="wrap_content"
             android:text="2015 / 01 / 30"
             android:textSize="12sp" />
-
-
     </LinearLayout>
-
 
 </LinearLayout>

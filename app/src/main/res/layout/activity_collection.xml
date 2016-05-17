@@ -30,8 +30,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_real"
         android:layout_width="wrap_content"
-        android:layout_margin="20dp"
         android:layout_height="0dp"
+        android:layout_gravity="left"
         android:layout_weight="2" />
 
 
@@ -44,8 +44,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_cartoon"
         android:layout_width="wrap_content"
-        android:layout_margin="20dp"
         android:layout_height="0dp"
+        android:layout_gravity="left"
         android:layout_weight="2" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
         android:layout_weight="0.5"
         android:text="选择本机图片" />
+
 </LinearLayout>

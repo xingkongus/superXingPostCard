@@ -19,7 +19,6 @@ import ly.img.android.ui.activities.CameraPreviewIntent;
 import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
 import us.xingkong.xingpostcard.Adapter.Collection_SimpleAdapter;
-import us.xingkong.xingpostcard.Adapter.DividerItemDecoration;
 import us.xingkong.xingpostcard.R;
 
 public class CollectionActivity extends AppCompatActivity {
@@ -95,17 +94,15 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     private void view_layout() {
-        final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(this);
-        linearLayoutMannger.setOrientation(LinearLayoutManager.HORIZONTAL);
+        final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
         mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real);
-        recyclerView_real.setLayoutManager(linearLayoutMannger);
         recyclerView_real.setAdapter(mAdapter_real);
+        recyclerView_real.setLayoutManager(linearLayoutMannger);
 
-        final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(this);
-        linearLayoutMannger2.setOrientation(LinearLayoutManager.HORIZONTAL);
+        final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
         mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon);
-        recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
         recyclerView_cartoon.setAdapter(mAdapter_cartoon);
+        recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
     }
 
     private void initView() {
@@ -116,10 +113,10 @@ public class CollectionActivity extends AppCompatActivity {
 
     private void initData() {
 
-        Collection_data_real = new ArrayList(Arrays.asList(R.drawable.a01, R.drawable.a02,
+        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01, R.drawable.a02,
                 R.drawable.a03, R.drawable.a04, R.drawable.a05, R.drawable.a06, R.drawable.a07, R.drawable.a08
         ));
-        Collection_data_cartoon = new ArrayList(Arrays.asList(R.drawable.bg01,
+        Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.drawable.bg01,
                 R.drawable.bg02, R.drawable.bg03, R.drawable.bg04,
                 R.drawable.bg05, R.drawable.bg06, R.drawable.bg07, R.drawable.bg08, R.drawable.bg09));
     }

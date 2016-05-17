@@ -4,9 +4,7 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import us.xingkong.xingpostcard.Contants.State;
 import us.xingkong.xingpostcard.R;
 import us.xingkong.xingpostcard.Utils.IOFile;
 
@@ -71,58 +70,71 @@ public class ArtActivity extends AppCompatActivity {
         System.out.println("stylecode" + styleCode);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
 
-
         switch (styleCode) {
             case 0:
-                LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
-                ll = (LinearLayout) findViewById(R.id.ll);
-                ll.setDrawingCacheEnabled(true);
-                iv = (ImageView) findViewById(R.id.iv1);
-                iv.setDrawingCacheEnabled(true);
-                tv = (TextView) findViewById(R.id.tv1);
-                bt = (Button) findViewById(R.id.done);
-                tv2 = (TextView) findViewById(R.id.tv_date);
-                getPhoto(iv);
+                View view = LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
                 break;
             case 1:
-                LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
-                ll = (LinearLayout) findViewById(R.id.ll);
-                ll.setDrawingCacheEnabled(true);
-                iv = (ImageView) findViewById(R.id.iv1);
-                iv.setDrawingCacheEnabled(true);
-                tv = (TextView) findViewById(R.id.tv1);
-                bt = (Button) findViewById(R.id.done);
-                tv2 = (TextView) findViewById(R.id.tv_date);
-                getPhoto(iv);
+                View v = LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
                 break;
             case 3:
                 LayoutInflater.from(this).inflate(R.layout.pattern_4, sv, true);
-                ll = (LinearLayout) findViewById(R.id.ll);
-                ll.setDrawingCacheEnabled(true);
-                iv = (ImageView) findViewById(R.id.iv1);
-                iv.setDrawingCacheEnabled(true);
-                tv = (TextView) findViewById(R.id.tv1);
-                bt = (Button) findViewById(R.id.done);
-                tv2 = (TextView) findViewById(R.id.tv_date);
-                getPhoto(iv);
                 break;
+            case 4:
+                LayoutInflater.from(this).inflate(R.layout.pattern_5, sv, true);
+                break;
+            case 5:
+                LayoutInflater.from(this).inflate(R.layout.pattern_6, sv, true);
+                break;
+            case 6:
+                LayoutInflater.from(this).inflate(R.layout.pattern_7, sv, true);
+                break;
+            case 7:
+                LayoutInflater.from(this).inflate(R.layout.pattern_8, sv, true);
+                break;
+            case 8:
+                LayoutInflater.from(this).inflate(R.layout.pattern_9, sv, true);
+                break;
+        }
+
+        init();//初始化控件
+        if (State.tv1_text == "") {
+            State.tv1_text = tv.getText().toString();
+            State.tv2_text = tv2.getText().toString();
         }
 
         if (getIntent().getStringExtra("words") != null) {
 
             int changeViewID = getIntent().getIntExtra("viewId", -1);
             if (tv.getId() == changeViewID) {
-                tv.setText(getIntent().getStringExtra("words"));
+                State.tv1_text = getIntent().getStringExtra("words");
+
             } else if (tv2.getId() == changeViewID) {
-                tv2.setText(getIntent().getStringExtra("words"));
+                State.tv2_text = getIntent().getStringExtra("words");
+
             } else {
-                System.out.println("ID会变！");
+                System.out.println("ID会变");
             }
+            tv.setText(State.tv1_text);
+            tv2.setText(State.tv2_text);
         }
+
+
         tv.setOnClickListener(new textOnClickListener());
         tv2.setOnClickListener(new textOnClickListener());
         bt.setOnClickListener(new btOnClickListener());
 
+    }
+
+    private void init() {
+        ll = (LinearLayout) findViewById(R.id.ll);
+        ll.setDrawingCacheEnabled(true);
+        iv = (ImageView) findViewById(R.id.iv1);
+        iv.setDrawingCacheEnabled(true);
+        tv = (TextView) findViewById(R.id.tv1);
+        bt = (Button) findViewById(R.id.done);
+        tv2 = (TextView) findViewById(R.id.tv_date);
+        getPhoto(iv);
     }
 
     private class textOnClickListener implements View.OnClickListener {
@@ -136,6 +148,7 @@ public class ArtActivity extends AppCompatActivity {
             intent.putExtra("myphotopath", myphotopath);
             intent.putExtra("myphoto", myphoto);
             intent.putExtra("viewId", view.getId());
+            intent.putExtra("styleCode", getIntent().getIntExtra("styleCode", -1));
             startActivity(intent);
         }
     }
@@ -144,50 +157,14 @@ public class ArtActivity extends AppCompatActivity {
     private class btOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+
             Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
-//            /**---------------下方要改为正确的值------------------*/
-//            switch (styleCode) {
-//                case 0:
             Bitmap bmp = ll.getDrawingCache();
 //                    aLowWay();
             String path = IOFile.toSaveFile(bmp);
             intent.putExtra("resultPath", path);
             startActivity(intent);
-//                    break;
-//
-//            }
         }
     }
-
-    private void aLowWay() {
-//                    x = sv.getWidth();
-//                    y = sv.getHeight();
-//                    Bitmap bmp = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
-//                    Paint paint = new Paint();
-//                    paint.setAntiAlias(true);
-//                    Canvas canvas = new Canvas(bmp);
-//                    Bitmap pic = iv.getDrawingCache();
-//                    canvas.drawBitmap(pic, new Rect(0, 0, pic.getWidth(), pic.getHeight()),
-//                            new Rect(iv.getLeft(),
-//                                    iv.getTop(),
-//                                    x - iv.getLeft(),
-//                                    iv.getTop() + iv.getHeight()), paint);
-//                    tv.setDrawingCacheEnabled(true);
-//                    Bitmap textBMP = tv.getDrawingCache();
-//                    canvas.drawBitmap(textBMP,
-//                            new Rect(0, 0, textBMP.getWidth(), textBMP.getHeight()),
-//                            new Rect(tv.getLeft(),
-//                                    tv.getTop(),
-//                                    x - tv.getLeft(),
-//                                    tv.getTop() + tv.getHeight()), paint);
-//                    tv2.setDrawingCacheEnabled(true);
-//                    Bitmap text2BMP = tv.getDrawingCache();
-//                    canvas.drawBitmap(text2BMP, new Rect(0, 0, text2BMP.getWidth(), text2BMP.getHeight()),
-//                            new Rect(tv2.getLeft(),
-//                                    tv2.getTop(),
-//                                    x - tv2.getLeft(),
-//                                    tv2.getTop() + tv2.getHeight()), paint);
-    }
-
 
 }

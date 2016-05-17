@@ -16,7 +16,7 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
     // Private members
     // =============================================================================
 
-    private int[] images = {R.drawable.splash, R.drawable.splash,R.drawable.splash, R.drawable.splash};
+    private int[] images = {R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash};
 
     // =============================================================================
     // Supertype overrides
