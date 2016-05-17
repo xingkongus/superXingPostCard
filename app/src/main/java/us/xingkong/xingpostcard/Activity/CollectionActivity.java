@@ -39,7 +39,6 @@ public class CollectionActivity extends AppCompatActivity {
         initView();
 
         Pick_position = getIntent().getIntExtra("styleCode", -1);
-        System.out.println("styleCode:" + Pick_position);
 
         view_layout(); //布局设置
         select_Click();//点击选择本地图片
@@ -143,11 +142,9 @@ public class CollectionActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-
     public void permissionGranted() {
 
     }
-
 
     public void permissionDenied() {
         //The Permission whas rejected by the user, so the Editor was not opened because it can not save the result Image.

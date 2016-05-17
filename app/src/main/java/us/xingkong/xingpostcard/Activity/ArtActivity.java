@@ -157,10 +157,8 @@ public class ArtActivity extends AppCompatActivity {
     private class btOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-
             Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
             Bitmap bmp = ll.getDrawingCache();
-//                    aLowWay();
             String path = IOFile.toSaveFile(bmp);
             intent.putExtra("resultPath", path);
             startActivity(intent);

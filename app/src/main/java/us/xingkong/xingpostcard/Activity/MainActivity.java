@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setUnselectedAlpha(0.9f);//
         this.fancyCoverFlow.setUnselectedSaturation(1f);//透明度
         this.fancyCoverFlow.setUnselectedScale(0.5f);//深度差
-        this.fancyCoverFlow.setSpacing(50);
+        this.fancyCoverFlow.setSpacing(1);
         this.fancyCoverFlow.setMaxRotation(0);
         this.fancyCoverFlow.setScaleDownGravity(0.5f);//高度差
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
