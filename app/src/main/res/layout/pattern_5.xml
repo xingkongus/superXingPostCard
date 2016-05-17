@@ -1,58 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@mipmap/bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/bottomfromend"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="40dp">
 
-
-
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:paddingTop="40dp">
-
-        <TextView
-        android:id="@+id/tv2"
+    <TextView
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="毕业那年"
-        android:textSize="24sp" />
-        <TextView
+        android:textSize="24sp"
+        android:typeface="serif" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textSize="20sp" />
+    <TextView
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="20dp"
-            android:text="青春的时光很短，\n我们也过得匆忙。\n我们不能让时光的飞逝慢一些，\n只能用镜头留下曾经年轻的面孔。\n用镜头记录自己每一个美好的瞬间，\n留作纪念。"
-            android:textSize="12sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/iv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="#ec407a"
-            android:scaleType="fitXY"
-            tools:layout_height="300dp" >
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="0dp"
+        android:text="青春的时光很短，\n我们也过得匆忙。\n我们不能让时光的飞逝慢一些，\n只能用镜头留下曾经年轻的面孔。\n用镜头记录自己每一个美好的瞬间，\n留作纪念。"
+        android:textSize="12sp" />
 
-        </ImageView>
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="#ec407a"
+        android:scaleType="fitXY"
+        tools:layout_height="300dp">
 
+    </ImageView>
 
-
-
-
-    </LinearLayout>
 
 </LinearLayout>

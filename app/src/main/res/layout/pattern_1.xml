@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:id="@+id/ll"
+    android:background="@mipmap/bg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:paddingTop="40dp">
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="@dimen/bottomfromend"
+    android:paddingTop="40dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
         <ImageView
             android:id="@+id/iv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxHeight="350dp"
             android:adjustViewBounds="true"
             android:background="#ec407a"
             android:scaleType="fitXY"
@@ -36,10 +34,7 @@
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:text="2015 / 01 / 30"
             android:textSize="12sp" />
 
     </LinearLayout>
-
-</LinearLayout>

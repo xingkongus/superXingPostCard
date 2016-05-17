@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/ll"
+    android:background="@mipmap/bg"
+    android:paddingBottom="@dimen/bottomfromend"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#ec407a"
         android:scaleType="fitXY"

@@ -19,7 +19,6 @@ import ly.img.android.ui.activities.CameraPreviewIntent;
 import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
 import us.xingkong.xingpostcard.Adapter.Collection_SimpleAdapter;
-import us.xingkong.xingpostcard.Adapter.DividerItemDecoration;
 import us.xingkong.xingpostcard.R;
 
 public class CollectionActivity extends AppCompatActivity {
@@ -99,13 +98,11 @@ public class CollectionActivity extends AppCompatActivity {
         mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real);
         recyclerView_real.setAdapter(mAdapter_real);
         recyclerView_real.setLayoutManager(linearLayoutMannger);
-        recyclerView_real.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
         final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
         mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon);
         recyclerView_cartoon.setAdapter(mAdapter_cartoon);
         recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
-        recyclerView_cartoon.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
     }
 
     private void initView() {
