@@ -24,7 +24,7 @@ import us.xingkong.xingpostcard.R;
 
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
-    public ArrayList<Integer> Pick_mData, Collection_data_real, Collection_data_cartoon;
+    public ArrayList<Integer> Collection_data_real, Collection_data_cartoon;
     private RecyclerView recyclerView_cartoon, recyclerView_real;
     public Collection_SimpleAdapter mAdapter_real, mAdapter_cartoon;
     Context con;
@@ -95,17 +95,17 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     private void view_layout() {
-        final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
+        final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(this);
+        linearLayoutMannger.setOrientation(LinearLayoutManager.HORIZONTAL);
         mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real);
-        recyclerView_real.setAdapter(mAdapter_real);
         recyclerView_real.setLayoutManager(linearLayoutMannger);
-//        recyclerView_real.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+        recyclerView_real.setAdapter(mAdapter_real);
 
-        final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
+        final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(this);
+        linearLayoutMannger2.setOrientation(LinearLayoutManager.HORIZONTAL);
         mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon);
-        recyclerView_cartoon.setAdapter(mAdapter_cartoon);
         recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
-//        recyclerView_cartoon.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+        recyclerView_cartoon.setAdapter(mAdapter_cartoon);
     }
 
     private void initView() {
@@ -116,10 +116,10 @@ public class CollectionActivity extends AppCompatActivity {
 
     private void initData() {
 
-        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01, R.drawable.a02,
+        Collection_data_real = new ArrayList(Arrays.asList(R.drawable.a01, R.drawable.a02,
                 R.drawable.a03, R.drawable.a04, R.drawable.a05, R.drawable.a06, R.drawable.a07, R.drawable.a08
         ));
-        Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.drawable.bg01,
+        Collection_data_cartoon = new ArrayList(Arrays.asList(R.drawable.bg01,
                 R.drawable.bg02, R.drawable.bg03, R.drawable.bg04,
                 R.drawable.bg05, R.drawable.bg06, R.drawable.bg07, R.drawable.bg08, R.drawable.bg09));
     }

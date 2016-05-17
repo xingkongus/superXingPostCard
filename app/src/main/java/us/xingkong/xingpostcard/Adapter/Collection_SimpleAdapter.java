@@ -48,8 +48,6 @@ public class Collection_SimpleAdapter extends RecyclerView.Adapter<MyViewHolder1
     public MyViewHolder1 onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInfalter1.inflate(R.layout.item_collection, parent, false);
         MyViewHolder1 viewHolder = new MyViewHolder1(view);
-        viewHolder.item_img = (ImageView) view
-                .findViewById(R.id.item_img);
         return viewHolder;
     }
 

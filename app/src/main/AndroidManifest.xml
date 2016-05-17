@@ -29,7 +29,6 @@
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".Activity.ResultActivity" />
         <activity android:name=".Activity.MainActivity"></activity>
-        <activity android:name=".Activity.PicPickActivity"></activity>
         <activity android:name=".Activity.CollectionActivity"></activity>
 
     </application>
