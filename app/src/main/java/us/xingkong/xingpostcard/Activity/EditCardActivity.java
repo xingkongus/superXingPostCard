@@ -38,6 +38,7 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
 
         editcardEt = (EditText) findViewById(R.id.editcard_et);
         editcardEt.setText(getIntent().getStringExtra("words"));
+        editcardEt.setMaxLines(8);
         editcardBt = (Button) findViewById(R.id.editcard_bt);
         editcardBt.setOnClickListener(this);
 

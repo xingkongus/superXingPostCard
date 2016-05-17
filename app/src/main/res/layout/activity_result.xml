@@ -17,7 +17,7 @@
             android:adjustViewBounds="true"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:background="@color/material_indigo_200"
+            android:background="#9fa8da"
              />
 
 

@@ -33,8 +33,8 @@
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="0dp"
+            android:layout_marginBottom="20dp"
             android:text="青春的时光很短，\n我们也过得匆忙。\n我们不能让时光的飞逝慢一些，\n只能用镜头留下曾经年轻的面孔。\n用镜头记录自己每一个美好的瞬间，\n留作纪念。"
             android:textSize="12sp" />
 
@@ -43,12 +43,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@color/material_pink_400"
+            android:background="#ec407a"
             android:scaleType="fitXY"
             tools:layout_height="300dp" >
-
-
-
 
         </ImageView>
 

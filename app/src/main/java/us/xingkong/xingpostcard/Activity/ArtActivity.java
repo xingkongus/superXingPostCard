@@ -4,6 +4,7 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -66,20 +67,6 @@ public class ArtActivity extends AppCompatActivity {
 
     private void initViews() {
 
-        if (getIntent().getStringExtra("words") != null) {
-
-            int changeViewID = getIntent().getIntExtra("viewId", -1);
-            if (tv.getId() == changeViewID) {
-                tv.setText(getIntent().getStringExtra("words"));
-            } else if (tv2.getId() == changeViewID) {
-                tv2.setText(getIntent().getStringExtra("words"));
-            } else {
-                System.out.println("ID会变");
-            }
-            styleCode = getIntent().getIntExtra("styleCode", -1);
-        }
-
-
         System.out.println("stylecode" + styleCode);
         ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
@@ -130,6 +117,17 @@ public class ArtActivity extends AppCompatActivity {
                 tv2 = (TextView) findViewById(R.id.tv_date);
                 getPhoto(iv);
                 break;
+        }
+        if (getIntent().getStringExtra("words") != null) {
+
+            int changeViewID = getIntent().getIntExtra("viewId", -1);
+            if (tv.getId() == changeViewID) {
+                tv.setText(getIntent().getStringExtra("words"));
+            } else if (tv2.getId() == changeViewID) {
+                tv2.setText(getIntent().getStringExtra("words"));
+            }else {
+                System.out.println("ID会变");
+            }
         }
 
 

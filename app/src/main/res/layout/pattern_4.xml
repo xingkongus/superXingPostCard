@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:background="@color/material_pink_400"
+        android:background="#ec407a"
         android:scaleType="fitXY"
         tools:layout_height="300dp" />
 

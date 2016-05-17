@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
 
         android:adjustViewBounds="true"
-        android:background="@color/material_pink_400"
+        android:background="#ec407a"
         android:scaleType="fitXY"
         tools:layout_height="300dp" />
 </LinearLayout>
