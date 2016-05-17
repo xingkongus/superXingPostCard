@@ -1,45 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@mipmap/bg"
+    android:orientation="vertical"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:paddingTop="40dp">
 
-    <LinearLayout
-        android:id="@+id/ll"
+    <ImageView
+        android:id="@+id/iv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:paddingTop="40dp">
+        android:adjustViewBounds="true"
+        android:background="@color/material_pink_400"
+        android:scaleType="fitXY"
+        tools:layout_height="300dp" />
 
-        <ImageView
-            android:id="@+id/iv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@color/material_pink_400"
-            android:scaleType="fitXY"
-            tools:layout_height="300dp" />
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="30dp"
+        android:text="人生需要一场说走就走的旅行。"
+        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="30dp"
-            android:text="人生需要一场说走就走的旅行。"
-            android:textSize="14sp" />
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="2015 / 01 / 30"
+        android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="2015 / 01 / 30"
-            android:textSize="12sp" />
-
-    </LinearLayout>
 
 </LinearLayout>

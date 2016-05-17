@@ -34,7 +34,7 @@ public class ArtActivity extends AppCompatActivity {
     private Button bt;
     private ScrollView sv;
     private LinearLayout ll;
-    Intent intent;
+
     private int styleCode = 0;
     private int myphoto;
     private String myphotopath;
@@ -69,12 +69,14 @@ public class ArtActivity extends AppCompatActivity {
 
     private void initViews() {
         System.out.println("stylecode" + styleCode);
-        ll = (LinearLayout) findViewById(R.id.ll);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
-        sv.setDrawingCacheEnabled(true);
+
+
         switch (styleCode) {
             case 0:
-                View view = LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
+                LayoutInflater.from(this).inflate(R.layout.pattern_1, sv, true);
+                ll = (LinearLayout) findViewById(R.id.ll);
+                ll.setDrawingCacheEnabled(true);
                 iv = (ImageView) findViewById(R.id.iv1);
                 iv.setDrawingCacheEnabled(true);
                 tv = (TextView) findViewById(R.id.tv1);
@@ -83,7 +85,9 @@ public class ArtActivity extends AppCompatActivity {
                 getPhoto(iv);
                 break;
             case 1:
-                View v = LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
+                LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
+                ll = (LinearLayout) findViewById(R.id.ll);
+                ll.setDrawingCacheEnabled(true);
                 iv = (ImageView) findViewById(R.id.iv1);
                 iv.setDrawingCacheEnabled(true);
                 tv = (TextView) findViewById(R.id.tv1);
@@ -93,6 +97,8 @@ public class ArtActivity extends AppCompatActivity {
                 break;
             case 3:
                 LayoutInflater.from(this).inflate(R.layout.pattern_4, sv, true);
+                ll = (LinearLayout) findViewById(R.id.ll);
+                ll.setDrawingCacheEnabled(true);
                 iv = (ImageView) findViewById(R.id.iv1);
                 iv.setDrawingCacheEnabled(true);
                 tv = (TextView) findViewById(R.id.tv1);
@@ -138,11 +144,11 @@ public class ArtActivity extends AppCompatActivity {
     private class btOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            intent = new Intent(ArtActivity.this, ResultActivity.class);
+            Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
 //            /**---------------下方要改为正确的值------------------*/
 //            switch (styleCode) {
 //                case 0:
-            Bitmap bmp = sv.getDrawingCache();
+            Bitmap bmp = ll.getDrawingCache();
 //                    aLowWay();
             String path = IOFile.toSaveFile(bmp);
             intent.putExtra("resultPath", path);
