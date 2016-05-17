@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Activity.SplashActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,11 +25,14 @@
         <activity android:name=".Activity.ArtActivity" />
         <activity
             android:name=".Activity.EditCardActivity"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:label="文字修改"/>
         <activity android:name=".Activity.ResultActivity" />
         <activity android:name=".Activity.MainActivity"></activity>
         <activity android:name=".Activity.PicPickActivity"></activity>
-        <activity android:name=".Activity.CollectionActivity"></activity>
+        <activity android:name=".Activity.CollectionActivity">
+
+        </activity>
 
     </application>
 

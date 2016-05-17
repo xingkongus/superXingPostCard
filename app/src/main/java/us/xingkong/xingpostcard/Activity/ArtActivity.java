@@ -10,8 +10,11 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -110,7 +113,7 @@ public class ArtActivity extends AppCompatActivity {
             } else if (tv2.getId() == changeViewID) {
                 tv2.setText(getIntent().getStringExtra("words"));
             } else {
-                System.out.println("ID会变！");
+                System.out.println("ID会变");
             }
         }
         tv.setOnClickListener(new textOnClickListener());
@@ -139,19 +142,18 @@ public class ArtActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             intent = new Intent(ArtActivity.this, ResultActivity.class);
-//            /**---------------下方要改为正确的值------------------*/
-//            switch (styleCode) {
-//                case 0:
+
+
             Bitmap bmp = sv.getDrawingCache();
 //                    aLowWay();
             String path = IOFile.toSaveFile(bmp);
             intent.putExtra("resultPath", path);
             startActivity(intent);
-//                    break;
-//
-//            }
         }
     }
+
+
+
 
     private void aLowWay() {
 //                    x = sv.getWidth();
@@ -182,6 +184,4 @@ public class ArtActivity extends AppCompatActivity {
 //                                    x - tv2.getLeft(),
 //                                    tv2.getTop() + tv2.getHeight()), paint);
     }
-
-
 }

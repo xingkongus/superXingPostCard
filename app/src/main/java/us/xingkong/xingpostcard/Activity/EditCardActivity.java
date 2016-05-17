@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,6 +27,14 @@ public class EditCardActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_editcard);
+
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.x = -20;
+//        params.y = -10;
+
+//        params.height = 100;
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        this.getWindow().setAttributes(params);
 
         editcardEt = (EditText) findViewById(R.id.editcard_et);
         editcardEt.setText(getIntent().getStringExtra("words"));

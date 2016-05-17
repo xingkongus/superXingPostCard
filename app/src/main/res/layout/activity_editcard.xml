@@ -2,17 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:layout_gravity="bottom"
     android:gravity="center"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/editcard_et"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/material_blueGrey_300"
+
         android:gravity="left|top"
         android:hint="请输入少于48个文字"
         android:imeOptions="flagNoEnterAction"
