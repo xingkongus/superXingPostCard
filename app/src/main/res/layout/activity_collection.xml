@@ -15,7 +15,8 @@
         android:layout_marginTop="10dp"
         android:layout_weight="0.2"
         android:text="写实图片"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_real"
@@ -33,7 +34,8 @@
         android:layout_marginTop="10dp"
         android:layout_weight="0.2"
         android:text="卡通图片"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_cartoon"
@@ -42,12 +44,12 @@
         android:layout_gravity="left"
         android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/bendi"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.2"
-        android:text="选择本机图片" />
+    <!--<Button-->
+    <!--android:id="@+id/bendi"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="0.2"-->
+    <!--android:text="选择本机图片" />-->
 
 </LinearLayout>

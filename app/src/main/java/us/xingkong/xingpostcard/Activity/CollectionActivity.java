@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
 import us.xingkong.xingpostcard.Adapter.Collection_SimpleAdapter;
 import us.xingkong.xingpostcard.R;
+import us.xingkong.xingpostcard.Utils.ShareUtils;
 
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
@@ -31,7 +33,6 @@ public class CollectionActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     Context con;
-    Button bendi;
     int Pick_position;
 
     @Override
@@ -46,7 +47,7 @@ public class CollectionActivity extends AppCompatActivity {
         Pick_position = getIntent().getIntExtra("styleCode", -1);
 
         view_layout(); //布局设置
-        select_Click();//点击选择本地图片
+
         real_Click();
         cartoon_Click();
 
@@ -87,23 +88,6 @@ public class CollectionActivity extends AppCompatActivity {
         });
     }
 
-    private void select_Click() {
-        bendi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new CameraPreviewIntent(CollectionActivity.this)
-                        .setExportDir(CameraPreviewIntent.Directory.DCIM, "ImgLyExample")
-                        .setExportPrefix("example_")
-                        .setEditorIntent(
-                                new PhotoEditorIntent(CollectionActivity.this)
-                                        .setExportDir(PhotoEditorIntent.Directory.DCIM, "ImgLyExample")
-                                        .setExportPrefix("result_")
-                                        .destroySourceAfterSave(true)
-                        )
-                        .startActivityForResult(CAMERA_PREVIEW_RESULT);
-            }
-        });
-    }
 
     private void view_layout() {
         final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
@@ -120,7 +104,6 @@ public class CollectionActivity extends AppCompatActivity {
     private void initView() {
         recyclerView_cartoon = (RecyclerView) findViewById(R.id.recyclerView_cartoon);
         recyclerView_real = (RecyclerView) findViewById(R.id.recyclerView_real);
-        bendi = (Button) findViewById(R.id.bendi);
     }
 
     private void initData() {
@@ -166,12 +149,31 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_collection, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;
+            case R.id.action_add:
+                new CameraPreviewIntent(CollectionActivity.this)
+                        .setExportDir(CameraPreviewIntent.Directory.DCIM, "ImgLyExample")
+                        .setExportPrefix("example_")
+                        .setEditorIntent(
+                                new PhotoEditorIntent(CollectionActivity.this)
+                                        .setExportDir(PhotoEditorIntent.Directory.DCIM, "ImgLyExample")
+                                        .setExportPrefix("result_")
+                                        .destroySourceAfterSave(true)
+                        )
+                        .startActivityForResult(CAMERA_PREVIEW_RESULT);
+
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
