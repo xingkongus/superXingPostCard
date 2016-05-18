@@ -15,6 +15,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/iv1"
             android:layout_width="match_parent"
@@ -26,16 +27,16 @@
 
         <TextView
             android:id="@+id/tv1"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:maxEms="4"
             android:maxLines="1"
             android:text="Hope"
             android:textColor="#ffffff"
-            android:typeface="sans"
+            android:textSize="40sp"
             android:textStyle="bold"
-            android:textSize="40sp" />
+            android:typeface="sans" />
     </FrameLayout>
 
 

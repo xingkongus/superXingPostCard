@@ -23,7 +23,7 @@ import java.io.IOException;
 public class IOFile {
     public static String toSaveFile(Bitmap bitmap){
         File sdCardDir = Environment.getExternalStorageDirectory();
-        String strPath = "/StarMark/starmark" + System.currentTimeMillis()
+        String strPath = "/StarPostCard/star" + System.currentTimeMillis()
                 + ".jpg";
         File file = new File(sdCardDir, strPath);
         if (!file.getParentFile().exists()) {
@@ -39,23 +39,7 @@ public class IOFile {
         return file.getAbsolutePath();
     }
 
-    public static String toSaveFile(Bitmap bitmap,String dir){
-        File sdCardDir = Environment.getExternalStorageDirectory();
-        String strPath = "/StarMark/" + dir + System.currentTimeMillis()
-                + ".jpg";
-        File file = new File(sdCardDir, strPath);
-        if (!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs();
-        }
-        try {
-            FileOutputStream os = new FileOutputStream(file);
-            bitmap.compress(CompressFormat.JPEG, 100, os);
-            os.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return file.getAbsolutePath();
-    }
+
     public static void scanPhotos(String filePath, Context context) {
         Intent intent = new Intent(
                 Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);

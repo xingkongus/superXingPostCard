@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@mipmap/start_backgroud"
+    android:background="@mipmap/m3"
     tools:context=".Activity.ArtActivity">
 
     <include layout="@layout/view_toolbar" />

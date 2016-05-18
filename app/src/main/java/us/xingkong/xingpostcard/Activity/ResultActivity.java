@@ -23,6 +23,7 @@ public class ResultActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView resultIv;
     private Bitmap bitmap;
+    String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class ResultActivity extends AppCompatActivity {
         initToolbar();
 
         resultIv = (ImageView) findViewById(R.id.result_iv);
-        String path = getIntent().getStringExtra("resultPath");
+        path = getIntent().getStringExtra("resultPath");
         bitmap = BitmapFactory.decodeFile(path);
         resultIv.setImageBitmap(bitmap);
 
@@ -60,7 +61,7 @@ public class ResultActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.action_share:
-                ShareUtils.shareImage(this, bitmap);
+                ShareUtils.shareImage(this, path);
 
         }
         return super.onOptionsItemSelected(item);

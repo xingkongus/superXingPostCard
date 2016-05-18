@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("选择相册");
     }
 
     private void fancyCoverFlowSetting() {

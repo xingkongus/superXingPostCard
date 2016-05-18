@@ -80,6 +80,7 @@ public class ArtActivity extends AppCompatActivity {
             iv.setImageResource(myphoto);
         } else if (myphotopath != null) {
             iv.setImageBitmap(BitmapFactory.decodeFile(myphotopath));
+            System.out.println(myphoto + "ssssssss" + myphotopath);
         }
 
     }
@@ -188,6 +189,7 @@ public class ArtActivity extends AppCompatActivity {
                 Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
                 Bitmap bmp = ll.getDrawingCache();
                 String path = IOFile.toSaveFile(bmp);
+                IOFile.scanPhotos(path, this);
                 intent.putExtra("resultPath", path);
                 startActivity(intent);
                 break;
