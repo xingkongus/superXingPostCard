@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
+
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -27,9 +28,9 @@
             android:name=".Activity.EditCardActivity"
             android:label="文字修改"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".Activity.ResultActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.CollectionActivity" />
+        <activity android:name=".Activity.ResultActivity" />
     </application>
 
 </manifest>

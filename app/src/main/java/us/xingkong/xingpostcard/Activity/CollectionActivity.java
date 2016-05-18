@@ -7,6 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,12 +23,15 @@ import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
 import us.xingkong.xingpostcard.Adapter.Collection_SimpleAdapter;
 import us.xingkong.xingpostcard.R;
+import us.xingkong.xingpostcard.Utils.ShareUtils;
 
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
     public ArrayList<Integer> Collection_data_real, Collection_data_cartoon;
     private RecyclerView recyclerView_cartoon, recyclerView_real;
     public Collection_SimpleAdapter mAdapter_real, mAdapter_cartoon;
+    private Toolbar toolbar;
+
     Context con;
     Button bendi;
     int Pick_position;
@@ -35,6 +41,7 @@ public class CollectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
 
+        initToolbar();
         initData();
         initView();
 
@@ -45,6 +52,14 @@ public class CollectionActivity extends AppCompatActivity {
         real_Click();
         cartoon_Click();
 
+    }
+
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_white_24dp);
+        getSupportActionBar().setTitle("选择图片");
     }
 
     private void cartoon_Click() {
@@ -112,12 +127,12 @@ public class CollectionActivity extends AppCompatActivity {
 
     private void initData() {
 
-        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.drawable.a01, R.drawable.a02,
-                R.drawable.a03, R.drawable.a04, R.drawable.a05, R.drawable.a06, R.drawable.a07, R.drawable.a08
+        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.mipmap.a01, R.mipmap.a02,
+                R.mipmap.a03, R.mipmap.a04, R.mipmap.a05, R.mipmap.a06, R.mipmap.a07, R.mipmap.a08
         ));
-        Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.drawable.bg01,
-                R.drawable.bg02, R.drawable.bg03, R.drawable.bg04,
-                R.drawable.bg05, R.drawable.bg06, R.drawable.bg07, R.drawable.bg08, R.drawable.bg09));
+        Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.mipmap.bg01,
+                R.mipmap.bg02, R.mipmap.bg03, R.mipmap.bg04,
+                R.mipmap.bg05, R.mipmap.bg06, R.mipmap.bg07, R.mipmap.bg08, R.mipmap.bg09));
     }
 
     @Override
@@ -149,5 +164,15 @@ public class CollectionActivity extends AppCompatActivity {
     public void permissionDenied() {
         //The Permission whas rejected by the user, so the Editor was not opened because it can not save the result Image.
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

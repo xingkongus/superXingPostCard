@@ -7,14 +7,19 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import us.xingkong.xingpostcard.Contants.State;
 import us.xingkong.xingpostcard.R;
@@ -30,7 +35,6 @@ public class ArtActivity extends AppCompatActivity {
 
     private ImageView iv;
     private TextView tv, tv2;
-    private Button bt;
     private ScrollView sv;
     private LinearLayout ll;
 
@@ -39,12 +43,25 @@ public class ArtActivity extends AppCompatActivity {
     private String myphotopath;
     int x = 0, y = 0;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_art);
+
+        initToolbar();
         getStyle();//获取intent的值做初始化
         initViews();//根据获得的板式种类，初始化界面，绑定控件监听等...
+
+    }
+
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_white_24dp);
+        getSupportActionBar().setTitle("编辑明信片");
 
     }
 
@@ -53,6 +70,7 @@ public class ArtActivity extends AppCompatActivity {
             styleCode = getIntent().getIntExtra("styleCode", styleCode);
             System.out.println("styleCode=" + styleCode);
         }
+
     }
 
     private void getPhoto(ImageView iv) {
@@ -69,6 +87,8 @@ public class ArtActivity extends AppCompatActivity {
     private void initViews() {
         System.out.println("stylecode" + styleCode);
         sv = (ScrollView) findViewById(R.id.art_picsarea);
+
+        Snackbar.make(sv, "点击文字进行修改", Snackbar.LENGTH_LONG).show();
 
         switch (styleCode) {
             case 0:
@@ -122,7 +142,6 @@ public class ArtActivity extends AppCompatActivity {
 
         tv.setOnClickListener(new textOnClickListener());
         tv2.setOnClickListener(new textOnClickListener());
-        bt.setOnClickListener(new btOnClickListener());
 
     }
 
@@ -132,7 +151,6 @@ public class ArtActivity extends AppCompatActivity {
         iv = (ImageView) findViewById(R.id.iv1);
         iv.setDrawingCacheEnabled(true);
         tv = (TextView) findViewById(R.id.tv1);
-        bt = (Button) findViewById(R.id.done);
         tv2 = (TextView) findViewById(R.id.tv_date);
         getPhoto(iv);
     }
@@ -154,15 +172,27 @@ public class ArtActivity extends AppCompatActivity {
     }
 
 
-    private class btOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
-            Bitmap bmp = ll.getDrawingCache();
-            String path = IOFile.toSaveFile(bmp);
-            intent.putExtra("resultPath", path);
-            startActivity(intent);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_art, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.action_done:
+                Intent intent = new Intent(ArtActivity.this, ResultActivity.class);
+                Bitmap bmp = ll.getDrawingCache();
+                String path = IOFile.toSaveFile(bmp);
+                intent.putExtra("resultPath", path);
+                startActivity(intent);
+                break;
         }
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -3,7 +3,10 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,19 +15,28 @@ import android.widget.Toast;
 import us.xingkong.xingpostcard.Adapter.CoverFlow;
 import us.xingkong.xingpostcard.Adapter.CoverFlowSampleAdapter;
 import us.xingkong.xingpostcard.R;
+import us.xingkong.xingpostcard.Utils.ShareUtils;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private CoverFlow fancyCoverFlow;
     private Button yes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initToolbar();
         initView();
         fancyCoverFlowSetting();
 
+    }
+
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     private void fancyCoverFlowSetting() {
@@ -65,4 +77,23 @@ public class MainActivity extends AppCompatActivity {
         yes= (Button) findViewById(R.id.yes);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_about_me:
+
+                break;
+            case R.id.action_about:
+//                Intent intent_about = new Intent(this, AboutActivity.class);
+//                startActivity(intent_about);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
