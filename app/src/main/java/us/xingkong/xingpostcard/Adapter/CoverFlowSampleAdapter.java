@@ -16,7 +16,8 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
     // Private members
     // =============================================================================
 
-    private int[] images = {R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash, R.drawable.splash};
+    private int[] images = {R.mipmap.s01, R.mipmap.s02,R.mipmap.s03, R.mipmap.s04,
+            R.mipmap.s05, R.mipmap.s06, R.mipmap.s07, R.mipmap.s08};
 
     // =============================================================================
     // Supertype overrides
@@ -45,7 +46,7 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
             customViewGroup = (CustomViewGroup) reuseableView;
         } else {
             customViewGroup = new CustomViewGroup(viewGroup.getContext());
-            customViewGroup.setLayoutParams(new CoverFlow.LayoutParams(500, 900));//图片高度
+            customViewGroup.setLayoutParams(new CoverFlow.LayoutParams(800, 1000));//图片高度
         }
 
         customViewGroup.getImageView().setImageResource(this.getItem(i));

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fcf="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="@mipmap/start_backgroud"
     android:orientation="vertical">
 
     <include layout="@layout/view_toolbar" />
@@ -13,21 +12,20 @@
         android:id="@+id/fancyCoverFlow"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         android:layout_weight="3"
-        fcf:maxRotation="45"
+        fcf:maxRotation="120"
         fcf:scaleDownGravity="0.1"
         fcf:unselectedAlpha="0.3"
         fcf:unselectedSaturation="0.0"
-        fcf:unselectedScale="1"></us.xingkong.xingpostcard.Adapter.CoverFlow>
+        fcf:unselectedScale="30"></us.xingkong.xingpostcard.Adapter.CoverFlow>
 
 
     <Button
         android:id="@+id/yes"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_marginBottom="20dp"
         android:onClick="yes"
         android:text="开始制作" />
 </LinearLayout>

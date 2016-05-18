@@ -3,14 +3,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="7dp"
-   >
+    android:layout_margin="7dp">
 
     <ImageView
-        android:layout_gravity="center"
+        android:id="@+id/item_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_img"
-        android:src="@drawable/splash"/>
+        android:layout_gravity="center"
+        android:src="@drawable/splash" />
 </RelativeLayout>
 

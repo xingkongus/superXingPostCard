@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="2016 / 01 / 30"
+            android:text="2016 / 05 / 20"
             android:textSize="12sp" />
 
     </LinearLayout>

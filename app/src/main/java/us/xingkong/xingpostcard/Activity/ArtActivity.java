@@ -4,7 +4,6 @@ package us.xingkong.xingpostcard.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -14,12 +13,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import us.xingkong.xingpostcard.Contants.State;
 import us.xingkong.xingpostcard.R;
@@ -98,6 +95,9 @@ public class ArtActivity extends AppCompatActivity {
             case 1:
                 View v = LayoutInflater.from(this).inflate(R.layout.pattern_2, sv, true);
                 break;
+            case 2:
+                LayoutInflater.from(this).inflate(R.layout.pattern_3, sv, true);
+                break;
             case 3:
                 LayoutInflater.from(this).inflate(R.layout.pattern_4, sv, true);
                 break;
@@ -113,9 +113,7 @@ public class ArtActivity extends AppCompatActivity {
             case 7:
                 LayoutInflater.from(this).inflate(R.layout.pattern_8, sv, true);
                 break;
-            case 8:
-                LayoutInflater.from(this).inflate(R.layout.pattern_9, sv, true);
-                break;
+
         }
 
         init();//初始化控件

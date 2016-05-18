@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="2015 / 01 / 30"
+            android:text="2016 / 05 / 20"
             android:textSize="12sp" />
 
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/bg"
+    android:background="@mipmap/bgmb"
     tools:context=".Activity.ResultActivity">
 
     <include layout="@layout/view_toolbar" />
