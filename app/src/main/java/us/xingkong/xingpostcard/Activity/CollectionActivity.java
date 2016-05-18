@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,6 @@ import ly.img.android.ui.activities.PhotoEditorIntent;
 import ly.img.android.ui.utilities.PermissionRequest;
 import us.xingkong.xingpostcard.Adapter.Collection_SimpleAdapter;
 import us.xingkong.xingpostcard.R;
-import us.xingkong.xingpostcard.Utils.ShareUtils;
 
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
@@ -127,12 +125,13 @@ public class CollectionActivity extends AppCompatActivity {
 
     private void initData() {
 
-        Collection_data_real = new ArrayList<Integer>(Arrays.asList(R.mipmap.a01, R.mipmap.a02,
-                R.mipmap.a03, R.mipmap.a04, R.mipmap.a05, R.mipmap.a06, R.mipmap.a07, R.mipmap.a08
+        Collection_data_real = new ArrayList<Integer>(Arrays.asList(
+                R.mipmap.a01, R.mipmap.a02, R.mipmap.a03,
+                R.mipmap.a04, R.mipmap.a05, R.mipmap.a06,
+                R.mipmap.a07, R.mipmap.a08
         ));
         Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.mipmap.bg01,
-                R.mipmap.bg02, R.mipmap.bg03, R.mipmap.bg04,
-                R.mipmap.bg05, R.mipmap.bg06, R.mipmap.bg07, R.mipmap.bg08, R.mipmap.bg09));
+                R.mipmap.bg02, R.mipmap.bg03, R.mipmap.bg04, R.mipmap.bg05));
     }
 
     @Override

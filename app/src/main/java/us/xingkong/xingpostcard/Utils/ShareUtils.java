@@ -23,8 +23,7 @@ public class ShareUtils {
     }
 
     public static void shareImage(Context context, String path) {
-        File f = new File(path);
-        Uri uri = Uri.fromFile(f);
+        Uri uri = Uri.fromFile(new File(path));
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
