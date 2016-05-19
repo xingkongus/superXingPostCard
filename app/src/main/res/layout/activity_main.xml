@@ -8,11 +8,15 @@
 
     <include layout="@layout/view_toolbar" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
     <us.xingkong.xingpostcard.Adapter.CoverFlow
         android:id="@+id/fancyCoverFlow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        fcf:maxRotation="120"
+        android:layout_height="wrap_content"
+        fcf:maxRotation="100"
         fcf:scaleDownGravity="0.1"
         fcf:unselectedAlpha="0.3"
         fcf:unselectedSaturation="0.0"

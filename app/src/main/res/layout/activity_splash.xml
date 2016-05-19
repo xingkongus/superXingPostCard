@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity">
+    android:background="@mipmap/blurry"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Activity.SplashActivity">
+
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/splash" />
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:adjustViewBounds="true"
+        android:background="@mipmap/logo"
+        android:scaleType="fitXY" />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textColor="#ffffff"
+    android:text="星空学生创新中心\nwww.xingkong.us"/>
+</LinearLayout>

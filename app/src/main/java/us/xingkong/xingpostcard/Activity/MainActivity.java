@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setUnselectedScale(0.5f);//深度差
         this.fancyCoverFlow.setSpacing(0);
         this.fancyCoverFlow.setMaxRotation(0);
-        this.fancyCoverFlow.setScaleDownGravity(0.5f);//高度差
+        this.fancyCoverFlow.setScaleDownGravity(0.2f);//高度差
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
 
         this.fancyCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
