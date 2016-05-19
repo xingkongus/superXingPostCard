@@ -24,7 +24,7 @@
         android:id="@+id/editcard_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done!"
+        android:text="完成"
         android:textColor="#eeffee"
         android:theme="@style/MyButton" />
 

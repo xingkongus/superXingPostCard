@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import us.xingkong.xingpostcard.Key;
 import us.xingkong.xingpostcard.R;
 
 
@@ -16,7 +17,7 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
     // Private members
     // =============================================================================
 
-    private int[] images = {R.mipmap.s01, R.mipmap.s02,R.mipmap.s03, R.mipmap.s04,
+    private int[] images = {R.mipmap.s01, R.mipmap.s02, R.mipmap.s03, R.mipmap.s04,
             R.mipmap.s05, R.mipmap.s06, R.mipmap.s07, R.mipmap.s08};
 
     // =============================================================================
@@ -46,7 +47,7 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
             customViewGroup = (CustomViewGroup) reuseableView;
         } else {
             customViewGroup = new CustomViewGroup(viewGroup.getContext());
-            customViewGroup.setLayoutParams(new CoverFlow.LayoutParams(800, 1000));//图片高度
+            customViewGroup.setLayoutParams(new CoverFlow.LayoutParams(Key.CoverFlow_Width, Key.CoverFlow_height));//图片高度
         }
 
         customViewGroup.getImageView().setImageResource(this.getItem(i));

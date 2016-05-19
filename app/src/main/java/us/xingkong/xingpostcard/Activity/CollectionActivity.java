@@ -28,6 +28,7 @@ import us.xingkong.xingpostcard.Utils.ShareUtils;
 public class CollectionActivity extends AppCompatActivity {
     public static int CAMERA_PREVIEW_RESULT = 1;
     public ArrayList<Integer> Collection_data_real, Collection_data_cartoon;
+    public ArrayList<Integer> Collection_data_real_mini, Collection_data_cartoon_mini;
     private RecyclerView recyclerView_cartoon, recyclerView_real;
     public Collection_SimpleAdapter mAdapter_real, mAdapter_cartoon;
     private Toolbar toolbar;
@@ -91,12 +92,12 @@ public class CollectionActivity extends AppCompatActivity {
 
     private void view_layout() {
         final LinearLayoutManager linearLayoutMannger = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
-        mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real);
+        mAdapter_real = new Collection_SimpleAdapter(this, Collection_data_real_mini);
         recyclerView_real.setAdapter(mAdapter_real);
         recyclerView_real.setLayoutManager(linearLayoutMannger);
 
         final LinearLayoutManager linearLayoutMannger2 = new LinearLayoutManager(con, LinearLayoutManager.HORIZONTAL, false);
-        mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon);
+        mAdapter_cartoon = new Collection_SimpleAdapter(this, Collection_data_cartoon_mini);
         recyclerView_cartoon.setAdapter(mAdapter_cartoon);
         recyclerView_cartoon.setLayoutManager(linearLayoutMannger2);
     }
@@ -116,6 +117,15 @@ public class CollectionActivity extends AppCompatActivity {
         ));
         Collection_data_cartoon = new ArrayList<Integer>(Arrays.asList(R.mipmap.bg01,
                 R.mipmap.bg02, R.mipmap.bg03, R.mipmap.bg04, R.mipmap.bg05));
+
+        Collection_data_real_mini = new ArrayList<Integer>(Arrays.asList(
+                R.mipmap.a01_mini, R.mipmap.a02_mini, R.mipmap.a03_mini,
+                R.mipmap.a04_mini, R.mipmap.a05_mini, R.mipmap.a06_mini,
+                R.mipmap.a07_mini, R.mipmap.a08_mini, R.mipmap.a09_mini,
+                R.mipmap.a10_mini, R.mipmap.a11_mini, R.mipmap.a12_mini
+        ));
+        Collection_data_cartoon_mini = new ArrayList<Integer>(Arrays.asList(R.mipmap.bg01_mini,
+                R.mipmap.bg02_mini, R.mipmap.bg03_mini, R.mipmap.bg04_mini, R.mipmap.bg05_mini));
     }
 
     @Override

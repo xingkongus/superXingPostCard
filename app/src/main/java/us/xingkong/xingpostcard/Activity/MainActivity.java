@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private CoverFlow fancyCoverFlow;
-    private Button yes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initToolbar();
-        initView();
         fancyCoverFlowSetting();
 
     }
@@ -51,33 +49,18 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setScaleDownGravity(0.5f);//高度差
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
 
-        this.fancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
+        this.fancyCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       final int position, long id) {
-                yes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(MainActivity.this,CollectionActivity.class);
-                        System.out.println("styleCode"+position);
-                        intent.putExtra("styleCode",  position);
-                        startActivity(intent);
-                    }
-                });
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, CollectionActivity.class);
+                System.out.println("styleCode" + position);
+                intent.putExtra("styleCode", position);
+                startActivity(intent);
             }
         });
 
     }
 
-    private void initView() {
-        yes= (Button) findViewById(R.id.yes);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

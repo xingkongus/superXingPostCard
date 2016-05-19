@@ -28,7 +28,7 @@
         <activity
             android:name=".Activity.EditCardActivity"
             android:label="文字修改"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.CollectionActivity" />
         <activity android:name=".Activity.ResultActivity" />
