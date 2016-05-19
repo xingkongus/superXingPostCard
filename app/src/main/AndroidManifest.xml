@@ -32,6 +32,7 @@
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.CollectionActivity" />
         <activity android:name=".Activity.ResultActivity" />
+        <activity android:name=".Activity.AboutActivity" />
     </application>
 
 </manifest>
