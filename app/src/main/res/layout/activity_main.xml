@@ -3,7 +3,7 @@
     xmlns:fcf="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/start_backgroud"
+    android:background="@mipmap/blurry"
     android:orientation="vertical">
 
     <include layout="@layout/view_toolbar" />
