@@ -40,8 +40,11 @@
         <activity android:name=".Activity.AboutActivity" />
 
         <activity
-            android:name="cn.bmob.v3.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:name=".update.DownLoadDialog"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".update.UpdateDialog"
+            android:theme="@style/MyDialogStyle" />
     </application>
     <meta-data
         android:name="wandoujia"

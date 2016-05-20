@@ -30,6 +30,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        initToolbar();
 
         resultIv = (ImageView) findViewById(R.id.result_iv);
         path = getIntent().getStringExtra("resultPath");
