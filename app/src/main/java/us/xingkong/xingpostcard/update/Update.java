@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.Key;
 
 
 public class Update extends Thread {
@@ -16,7 +17,7 @@ public class Update extends Thread {
     public String result;
     public String version;
     public String up_url;
-    private String url = "http://api.fir.im/apps/latest/56212c8cf2fc4229c6000001?api_token=";
+    private String url = us.xingkong.xingpostcard.Key.UPDATEURL;
 
     public Update() {
 
