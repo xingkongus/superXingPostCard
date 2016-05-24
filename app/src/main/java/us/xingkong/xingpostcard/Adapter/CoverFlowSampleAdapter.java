@@ -3,6 +3,7 @@ package us.xingkong.xingpostcard.Adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -71,15 +72,6 @@ public class CoverFlowSampleAdapter extends CoverFlowAdapter {
             this.imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 //            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.imageView.setAdjustViewBounds(true);
-//            this.imageView.setOnClickListener(new OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    System.out.println("eeeeeeeeeee"+a);
-//                    Intent intent=new Intent(context,PicPickActivity.class);
-//                    v.getContext().startActivity(intent);
-//
-//                }
-//            });
 
 
             this.addView(this.imageView);
