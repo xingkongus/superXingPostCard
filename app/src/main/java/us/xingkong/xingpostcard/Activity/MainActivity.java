@@ -166,8 +166,6 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 showDownloadDialog();
                 break;
-            case 3:
-                break;
             default:
                 break;
         }
