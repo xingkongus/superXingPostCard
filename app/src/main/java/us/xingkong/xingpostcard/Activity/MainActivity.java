@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private CoverFlow fancyCoverFlow;
     private SharedPreferences sh_updateurl;
 
-    String url = "http://xingkongus.duapp.com/index.php/User/loginAPP";
-
     private String version = BuildConfig.VERSION_NAME;
 
     private String apkUrl = "";
