@@ -7,4 +7,6 @@ package us.xingkong.xingpostcard;
 public class Key {
     public static int CoverFlow_Width = 800;
     public static int CoverFlow_height = 1000;
+    public static String UPDATEURL = "http://api.fir.im/apps/latest/573ecefa748aac36f4000007?api_token=70804bab6b69e63cab0ae3346d92c139";
+
 }

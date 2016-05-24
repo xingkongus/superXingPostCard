@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             up.putString("sh_updateurl", apkUrl);
             up.commit();
 
-            System.out.println("apkUrl11111111111111111" + apkUrl);
+            System.out.println("apkUrl: " + apkUrl);
             if (update.version == null) {
                 System.out.println("无联网，不更新");
                 msg.arg1 = 2;
