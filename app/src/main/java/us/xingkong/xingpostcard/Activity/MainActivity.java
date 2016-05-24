@@ -12,14 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.Toast;
 
 import us.xingkong.xingpostcard.Adapter.CoverFlow;
 import us.xingkong.xingpostcard.Adapter.CoverFlowSampleAdapter;
 import us.xingkong.xingpostcard.BuildConfig;
 import us.xingkong.xingpostcard.R;
-import us.xingkong.xingpostcard.Utils.ShareUtils;
 import us.xingkong.xingpostcard.update.DownLoadDialog;
 import us.xingkong.xingpostcard.update.Update;
 import us.xingkong.xingpostcard.update.UpdateDialog;
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             switch (i) {
                 case 1:
                     // 弹出提示更新对话框
-                    checkUpdateInfo();
+                    showNoticeDialog();
                     break;
                 default:
                     break;
@@ -148,11 +145,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    // 外部接口让主Activity调用
-    public void checkUpdateInfo() {
-        showNoticeDialog();
     }
 
     private void showNoticeDialog() {
