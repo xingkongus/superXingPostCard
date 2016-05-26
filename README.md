@@ -12,7 +12,7 @@
 <img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/4.jpg" width="256" />
 
 ## 主要运用
-- bitmap应用
+- `Bitmap`
 - `RecyclerView`
 - [imgly](https://github.com/imgly/imgly-sdk-android-demo)滤镜处理
 
