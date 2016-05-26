@@ -13,6 +13,7 @@
 
 ## 主要运用
 - bitmap应用
+- [imgly](https://github.com/imgly/imgly-sdk-android-demo)滤镜处理
 
 ##制作团队
 - 星空学生创新中心Android方向
