@@ -10,11 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import us.xingkong.xingpostcard.Adapter.CoverFlow;
 import us.xingkong.xingpostcard.Adapter.CoverFlowSampleAdapter;
 import us.xingkong.xingpostcard.BuildConfig;
+import us.xingkong.xingpostcard.Key;
 import us.xingkong.xingpostcard.R;
 import us.xingkong.xingpostcard.update.DownLoadDialog;
 import us.xingkong.xingpostcard.update.Update;
@@ -104,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fancyCoverFlowSetting() {
+        setupFlowWidthAndHeight();
+
         this.fancyCoverFlow = (CoverFlow) this.findViewById(R.id.fancyCoverFlow);
         this.fancyCoverFlow.setAdapter(new CoverFlowSampleAdapter());
         this.fancyCoverFlow.setUnselectedAlpha(0.9f);//
@@ -113,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
         this.fancyCoverFlow.setMaxRotation(0);
         this.fancyCoverFlow.setScaleDownGravity(0.2f);//高度差
         this.fancyCoverFlow.setActionDistance(CoverFlow.ACTION_DISTANCE_AUTO);
-
         this.fancyCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -124,6 +127,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setupFlowWidthAndHeight() {
+        WindowManager wm = this.getWindowManager();
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        Key.CoverFlow_height = height/3;
+        Key.CoverFlow_Width = width/2;
     }
 
 
