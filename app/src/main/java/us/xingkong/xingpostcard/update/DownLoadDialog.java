@@ -74,8 +74,8 @@ public class DownLoadDialog extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.downloaddialog);
 
-        sh_updateurl = this.getSharedPreferences("sh_updateurl", MODE_APPEND);
-        apkUrl = sh_updateurl.getString("sh_updateurl", "");
+        sh_updateurl = this.getSharedPreferences("sh_update", MODE_APPEND);
+        apkUrl = sh_updateurl.getString("sh_update_url", "");
 
         close = (ImageView) findViewById(R.id.download_dialog_close);
         mProgress = (ProgressBar) findViewById(R.id.progressdialog_p);

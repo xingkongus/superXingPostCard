@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private CoverFlow fancyCoverFlow;
-    private SharedPreferences sh_updateurl;
+    private SharedPreferences sh_update;
 
     private String version = BuildConfig.VERSION_NAME;
 
@@ -60,24 +60,24 @@ public class MainActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            apkUrl = update.up_url;
 
-            sh_updateurl = getSharedPreferences("sh_updateurl", MODE_APPEND);
-            SharedPreferences.Editor up = sh_updateurl.edit();
-            up.putString("sh_updateurl", apkUrl);
+            sh_update = getSharedPreferences("sh_update", MODE_APPEND);
+            SharedPreferences.Editor up = sh_update.edit();
+            up.putString("sh_update_url", update.up_url);
+            up.putString("sh_update_changelog", update.changelog);
             up.commit();
 
             System.out.println("apkUrl: " + apkUrl);
             if (update.version == null) {
-//                System.out.println("无联网，不更新");
+                System.out.println("无联网，不更新");
                 msg.arg1 = 2;
                 up_handler.sendMessage(msg);
             } else if (!update.version.equals(version)) {
-//                System.out.println("需更新版本");
+                System.out.println("需更新版本");
                 msg.arg1 = 1;
                 up_handler.sendMessage(msg);
             } else {
-//                System.out.println("版本已是最新");
+                System.out.println("版本已是最新");
                 msg.arg1 = 2;
                 up_handler.sendMessage(msg);
             }

@@ -15,6 +15,7 @@ import java.security.Key;
 public class Update extends Thread {
 
     public String result;
+    public String changelog;
     public String version;
     public String up_url;
     private String url = us.xingkong.xingpostcard.Key.UPDATEURL;
@@ -43,9 +44,10 @@ public class Update extends Thread {
                 }
                 result = new String(sb.toString().getBytes(), "utf-8");
                 JSONObject object = new JSONObject(result);
+                changelog = object.getString("changelog");
                 version = object.getString("versionShort");
                 up_url = object.getString("installUrl");
-                System.out.println("4sssssssssssss"+version+up_url);
+                System.out.println("4sssssssssssss" + changelog + version + up_url);
             }
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
