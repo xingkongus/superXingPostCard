@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         WindowManager wm = this.getWindowManager();
         int width = wm.getDefaultDisplay().getWidth();
         int height = wm.getDefaultDisplay().getHeight();
-        Key.CoverFlow_height = height/3;
-        Key.CoverFlow_Width = width/2;
+        Key.CoverFlow_height = height * 2 / 3;
+        Key.CoverFlow_Width = width * 2 / 3;
     }
 
 
