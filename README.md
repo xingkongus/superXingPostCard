@@ -7,9 +7,11 @@
 - 直接下载：[http://fir.im/xingpostcard](http://fir.im/xingpostcard)
 
 <img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/1.jpg" width="256" />
-<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/2.jpg" width="256" /><br>
-<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/3.jpg" width="256" />
+<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/2.jpg" width="256" />
+<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/3.jpg" width="256" /><br>
 <img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/4.jpg" width="256" />
+<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/5.jpg" width="256" />
+<img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/6.jpg" width="256" /><br>
 
 ## 主要运用
 - `Bitmap`
