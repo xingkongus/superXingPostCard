@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     Handler up_handler = new Handler() {
         public void handleMessage(Message msg) {
-            int i;
-            i = msg.arg1;
-            switch (i) {
+            switch (msg.arg1) {
                 case 1:
                     // 弹出提示更新对话框
                     showNoticeDialog();
@@ -71,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
             System.out.println("apkUrl: " + apkUrl);
             if (update.version == null) {
-                System.out.println("无联网，不更新");
+//                System.out.println("无联网，不更新");
                 msg.arg1 = 2;
                 up_handler.sendMessage(msg);
             } else if (!update.version.equals(version)) {
-                System.out.println("需更新版本");
+//                System.out.println("需更新版本");
                 msg.arg1 = 1;
                 up_handler.sendMessage(msg);
             } else {
-                System.out.println("版本已是最新");
+//                System.out.println("版本已是最新");
                 msg.arg1 = 2;
                 up_handler.sendMessage(msg);
             }
@@ -121,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, CollectionActivity.class);
-                System.out.println("styleCode" + position);
+//                System.out.println("styleCode" + position);
                 intent.putExtra("styleCode", position);
                 startActivity(intent);
             }
