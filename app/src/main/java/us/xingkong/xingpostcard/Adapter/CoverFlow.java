@@ -15,7 +15,7 @@ import android.widget.SpinnerAdapter;
 import us.xingkong.xingpostcard.R;
 
 
-public class CoverFlow extends Gallery {
+    public class CoverFlow extends Gallery {
 
     // =============================================================================
     // Constants
