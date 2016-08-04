@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void UpdateModel() {
         UpdateKey.API_TOKEN = "";
-        UpdateKey.RELEASE_ID = "573ecefa748aac36f4000007";
+        UpdateKey.APP_ID = "573ecefa748aac36f4000007";
         UpdateFunGO.init(this);
     }
 

@@ -29,6 +29,6 @@ dependencies {
 
     compile 'ly.img.android:photo-editor-sdk:1.0.8'
 
-    compile 'cn.hugeterry.updatefun:updatefun:1.3.6'
+    compile 'cn.hugeterry.updatefun:library:1.4.0'
 
 }
