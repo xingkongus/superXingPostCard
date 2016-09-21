@@ -8,8 +8,8 @@ android {
         applicationId "us.xingkong.xingpostcard"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 7
-        versionName "1.5"
+        versionCode 9
+        versionName "1.7"
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
     }
@@ -29,5 +29,5 @@ dependencies {
 
     compile 'ly.img.android:photo-editor-sdk:1.0.8'
 
-    compile 'cn.hugeterry.updatefun:updatefun:1.6.8'
+    compile 'cn.hugeterry.updatefun:updatefun:1.8.6'
 }
