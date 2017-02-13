@@ -17,7 +17,7 @@
 - `Bitmap`
 - `RecyclerView`
 - [imgly](https://github.com/imgly/imgly-sdk-android-demo)滤镜处理
-- [updatefun](https://github.com/hugeterry/UpdateDemo)自己开源的fir.im更新库
+- [updatefun](https://github.com/hugeterry/UpdateDemo): [HugeTerry](https://github.com/hugeterry)开源的fir.im更新库
 
 ##制作团队
 - 星空学生创新中心Android方向
