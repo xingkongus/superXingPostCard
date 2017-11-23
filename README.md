@@ -4,7 +4,7 @@
 
 - [星空学生创新中心](http://www.xingkong.us/)2015年毕业季纪念产品
 - 制作属于你的毕业明信片
-- 短期产品，已不做长久维护，可供组织内部android端图片入门使用的代码阅读
+- **短期产品，已不做长久维护，可供组织内部android端图片入门使用的代码阅读**
 - 直接下载：[http://fir.im/xingpostcard](http://fir.im/xingpostcard)
 
 <img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/1.jpg" width="256" /> <img src="https://github.com/hugeterry/superXingPostCard/blob/master/showUI/2.jpg" width="256" />
